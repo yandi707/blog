@@ -33,7 +33,7 @@
 
     <!-- 查询所有评论 -->
     <select id="getAllComment" resultMap="CommentInfo">
-        select id, name, email, content, comment_date from comment
+        select id, name, email, content, comment_date, blog_id from comment
     </select>
 
     <!-- 根据博客 id 查询博客名称-->

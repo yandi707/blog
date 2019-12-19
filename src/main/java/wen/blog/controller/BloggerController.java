@@ -6,9 +6,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import wen.blog.pojo.Blogger;
+import wen.blog.pojo.Comment;
+import wen.blog.pojo.Reply;
 import wen.blog.service.*;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Controller
 @RequestMapping("/admin")
@@ -39,10 +42,21 @@ public class BloggerController {
         modelAndView.addObject("blogTypeList", blogTypeService.getAllTypes());
 
         // 评论
-        modelAndView.addObject("commentList", commentService.getAllComment());
+        List<Comment> commentList = commentService.getAllComment();
+        for (Comment comment : commentList) {
+            comment.setBlogTitle(commentService.getTitleByBlogId(comment.getBlog_id()));
+        }
+        modelAndView.addObject("commentList", commentList);
 
         // 回复
-        modelAndView.addObject("replyList", replyService.getAllReply());
+        List<Reply> replyList = replyService.getAllReply();
+        for (Reply reply : replyList) {
+            Integer id = reply.getId();
+            reply.setBlog_id(replyService.getBlogIdByReplyId(id));
+            reply.setBlogTitle(replyService.getBlogTitleByReplyId(id));
+            System.out.println(reply.toString());
+        }
+        modelAndView.addObject("replyList", replyList);
 
         // 链接
         modelAndView.addObject("linkList", linkService.getAllLink());

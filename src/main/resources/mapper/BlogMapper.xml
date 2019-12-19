@@ -122,4 +122,8 @@
         or keyword like concat(concat("%",#{str}),"%")
     </select>
 
+    <select id="getTitleById" parameterType="java.lang.Integer" resultType="java.lang.String">
+        select title from blog where id = #{id}
+    </select>
+
 </mapper> 

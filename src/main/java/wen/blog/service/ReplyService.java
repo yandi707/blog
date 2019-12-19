@@ -18,4 +18,10 @@ public interface ReplyService {
     // 根据回复 id 删除回复
     void deleteReplyById(Integer id);
 
+    // 根据回复id查询博客标题
+    String getBlogTitleByReplyId(int id);
+
+    // 获取博客 id
+    Integer getBlogIdByReplyId(Integer id);
+
 }

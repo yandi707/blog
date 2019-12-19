@@ -51,4 +51,7 @@ public interface BlogDao {
     // 搜索博文
     List<Integer> searchBlog(String str);
 
+    // 根据博客 id 获取博客标题
+    String getTitleById(Integer id);
+
 }
