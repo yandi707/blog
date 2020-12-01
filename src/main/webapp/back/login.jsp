@@ -41,19 +41,18 @@
         function adminLogin() {
             var username = $("#username").val();
             var password = $("#password").val();
-
             if (username === "" || password === "") {
                 alert("请完善登陆信息！");
-                location.reload();
+                // location.reload();
             } else {
-                var url = "${pageContext.request.contextPath}/checkLogin.do";
+                <%--var url = "${pageContext.request.contextPath}/checkLogin.do";--%>
                 var blogger = {
                     username: username,
                     password: password
                 };
 
                 $.ajax({
-                    url: url,
+                    url: "${pageContext.request.contextPath}/checkLogin.do",
                     contentType: "application/json",
                     type: "POST",
                     data: JSON.stringify(blogger),
@@ -68,6 +67,7 @@
                         }
                     }
                 })
+
 
             }
         }

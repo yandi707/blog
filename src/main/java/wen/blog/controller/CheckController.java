@@ -39,13 +39,14 @@ public class CheckController {
     @RequestMapping("/checkLogin")
     public boolean login(@RequestBody Blogger blogger) {
 
+        System.out.println("1111111111111111111111111111111111111");
         // 获取登录实体
         Subject subject = SecurityUtils.getSubject();
         // 获取加密后的密码
         String saltPassword = MD5Util.md5(blogger.getPassword(), "admin");
-        System.out.println(blogger.getPassword() + "  " + saltPassword);
+//        System.out.println(blogger.getPassword() + "  " + saltPassword);
         // 获取用户密码登录token
-        UsernamePasswordToken token = new UsernamePasswordToken(blogger.getUsername(), blogger.getPassword());
+        UsernamePasswordToken token = new UsernamePasswordToken(blogger.getUsername(), saltPassword);
 
         try {
             //根据token登录 会调用BloggerRealm中的doGetAuthenticationInfo方法进行身份认证
@@ -98,7 +99,7 @@ public class CheckController {
                 Transport ts = session.getTransport();
 
                 //连接邮件服务器
-                ts.connect("820352756@qq.com", "yyzlwyfzxnmmbcgi");
+                ts.connect("820352756@qq.com", "你的QQ邮箱授权码");
 
                 //第三步：创建邮件消息体
                 MimeMessage mimeMessage = new MimeMessage(session);

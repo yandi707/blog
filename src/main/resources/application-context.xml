@@ -8,16 +8,25 @@
 		http://www.springframework.org/schema/context
 		http://www.springframework.org/schema/context/spring-context-4.3.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
+
     <!-- 开启包扫描-->
     <context:component-scan base-package="wen.blog"/>
 
+
     <!-- 配置druid数据源 -->
-    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+    <!--<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
         <property name="username" value="root"/>
         <property name="password" value=""/>
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         <property name="url"
                   value="jdbc:mysql://localhost:3306/blog?userUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=true&amp;serverTimezone = GMT"/>
+    </bean>-->
+    <!--数据源 spring-jdbc-->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/blog?useSSL=true&amp;serverTimezone=GMT%2B8&amp;useUnicode=true&amp;characterEncoding=utf8&amp;autoReconnect=true&amp;allowMultiQueries=true"/>
+        <property name="username" value="root"/>
+        <property name="password" value="123456"/>
     </bean>
 
     <!-- 配置mybatis的sqlSessionFactory -->
@@ -47,29 +56,50 @@
 
     <!-- shiro -->
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
-        <property name="securityManager" ref="securityManager"/><!--登录页面，-->
-        <property name="loginUrl" value="../back/login.jsp"/>
+        <!-- Shiro的核心安全接口,这个属性是必须的 -->
+        <property name="securityManager" ref="securityManager"/>
+        <!-- 身份认证失败，则跳转到登录页面的配置 -->
+        <property name="loginUrl" value="../back/login.jsp"/><!--登录页面，-->
         <property name="filterChainDefinitions">
             <value>
+                /login.jsp=anon
                 /admin/**=authc
-                /**= anon
+<!--                /**= anon-->
             </value>
         </property>
     </bean>
-
+    <!-- 安全管理器 -->
     <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
         <property name="realm" ref="bloggerRealm"/>
     </bean>
 
-    <!-- 自定义Realm -->
-    <bean id="bloggerRealm" class="wen.blog.realm.BloggerRealm">
-        <!-- 定义凭证匹配器 -->
-        <property name="credentialsMatcher" ref="credentialsMatcher"/>
+    <!-- 保证实现了Shiro内部lifecycle函数的bean执行 -->
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+
+    <!-- 开启Shiro注解 -->
+    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator" depends-on="lifecycleBeanPostProcessor"/>
+    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+        <property name="securityManager" ref="securityManager"/>
     </bean>
 
-    <bean id="credentialsMatcher" class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
-        <!-- 加密算法名称 -->
+    <!--自定义凭证-->
+    <bean id="bloggerRealm" class="wen.blog.realm.BloggerRealm"/>
+
+
+
+    <!-- 自定义Realm -->
+   <!-- <bean id="bloggerRealm" class="wen.blog.realm.BloggerRealm">
+        &lt;!&ndash; 定义凭证匹配器 &ndash;&gt;
+        <property name="credentialsMatcher" ref="credentialsMatcher"/>
+    </bean>-->
+
+   <!-- <bean id="credentialsMatcher" class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+        &lt;!&ndash; 加密算法名称 &ndash;&gt;
         <property name="hashAlgorithmName" value="MD5"/>
-    </bean>
+    </bean>-->
+
+
 
 </beans>
+
+

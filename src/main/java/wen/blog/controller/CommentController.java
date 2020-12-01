@@ -54,7 +54,7 @@ public class CommentController {
             mailSender.setHost("smtp.qq.com");
             mailSender.setPort(587);
             mailSender.setUsername("820352756@qq.com");
-            mailSender.setPassword("yyzlwyfzxnmmbcgi");
+            mailSender.setPassword("你的QQ邮箱授权码");
 
             // 邮件信息
             SimpleMailMessage msg = new SimpleMailMessage();
