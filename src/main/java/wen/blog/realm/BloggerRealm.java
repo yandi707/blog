@@ -5,6 +5,7 @@ import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.SimpleAuthenticationInfo;
+import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
@@ -46,8 +47,7 @@ public class BloggerRealm extends AuthorizingRealm {
         if (blogger != null) {
             //把当前用户存到session中
             SecurityUtils.getSubject().getSession().setAttribute("currentUser", blogger);
-            return new SimpleAuthenticationInfo(
-                    blogger.getUsername(), blogger.getPassword(), "BloggerRealm");
+            return new SimpleAuthenticationInfo(blogger.getUsername(),blogger.getPassword(),"BloggerRealm");
         } else {
             return null;
         }

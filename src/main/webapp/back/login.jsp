@@ -45,14 +45,13 @@
                 alert("请完善登陆信息！");
                 // location.reload();
             } else {
-                <%--var url = "${pageContext.request.contextPath}/checkLogin.do";--%>
+                var url = "${pageContext.request.contextPath}/checkLogin.do";
                 var blogger = {
                     username: username,
                     password: password
                 };
-
                 $.ajax({
-                    url: "${pageContext.request.contextPath}/checkLogin.do",
+                    url: url,
                     contentType: "application/json",
                     type: "POST",
                     data: JSON.stringify(blogger),
@@ -81,7 +80,7 @@
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
 
-            <form class="fh5co-form animate-box" data-animate-effect="fadeIn">
+            <div class="fh5co-form animate-box" data-animate-effect="fadeIn">
                 <h2>BLOGGER Sign In</h2>
                 <div class="form-group">
                     <label for="username" class="sr-only">username</label>
@@ -96,9 +95,10 @@
                     </p>
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-primary" id="loginBtn" onclick="adminLogin()">LOGIN</button>
+                  <button class="btn btn-primary" id="loginBtn" onclick="adminLogin()">LOGIN</button>
+
                 </div>
-            </form>
+            </div>
 
         </div>
     </div>
