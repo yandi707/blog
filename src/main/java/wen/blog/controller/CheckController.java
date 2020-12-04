@@ -38,24 +38,26 @@ public class CheckController {
     @ResponseBody
     @RequestMapping("/checkLogin")
     public boolean login(@RequestBody Blogger blogger) {
-
-        System.out.println("1111111111111111111111111111111111111");
+        System.out.println("实体类"+blogger.toString());
         // 获取登录实体
         Subject subject = SecurityUtils.getSubject();
         // 获取加密后的密码
         String saltPassword = MD5Util.md5(blogger.getPassword(), "admin");
+        System.out.println("加盐后的密码"+saltPassword);
 //        System.out.println(blogger.getPassword() + "  " + saltPassword);
         // 获取用户密码登录token
         UsernamePasswordToken token = new UsernamePasswordToken(blogger.getUsername(), saltPassword);
-
+        System.out.println("获取用户密码登录token"+token);
         try {
             //根据token登录 会调用BloggerRealm中的doGetAuthenticationInfo方法进行身份认证
             subject.login(token);
+            System.out.println("用户是否登录：" + subject.isAuthenticated());
+
         } catch (AuthenticationException e) {
             e.printStackTrace();
             return false;
         }
-        return true;
+       return true;
     }
 
     // 忘记密码
