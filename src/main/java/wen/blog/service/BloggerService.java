@@ -22,4 +22,7 @@ public interface BloggerService {
     // 修改博主信息
     void updateBloggerInfo(Blogger blogger);
 
+    //shiro权限验证
+    Blogger findBloggerByUsername(String username);
+
 }

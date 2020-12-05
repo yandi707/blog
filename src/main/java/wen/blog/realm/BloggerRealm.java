@@ -1,5 +1,7 @@
 package wen.blog.realm;
 
+import java.util.HashSet;
+
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
@@ -7,8 +9,11 @@ import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.SimpleAuthenticationInfo;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authz.AuthorizationInfo;
+import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
+import org.springframework.util.StringUtils;
+
 import wen.blog.pojo.Blogger;
 import wen.blog.service.BloggerService;
 
@@ -22,13 +27,30 @@ public class BloggerRealm extends AuthorizingRealm {
     /**
      * 为当前登陆的用户授予角色和权限
      *
-     * @param principalCollection
+     * @param
      * @return
      */
     @Override
-    protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
-        //因为是个人博客 所以不存在角色权限
-        return null;
+    protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
+       String username = (String) principals.getPrimaryPrincipal();
+       Blogger dbUser  = bloggerService.findBloggerByUsername(username);
+       if(dbUser == null){
+           return null;
+       }
+       String role = dbUser.getRole();
+       if(StringUtils.isEmpty(role)){
+           return null;
+       }
+        SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
+       String[] split = role.split(",");
+       //设置权限
+        HashSet<String> roles = new HashSet<>();
+        for(String s : split){
+            roles.add(s);
+        }
+        //设置我们的权限
+        authorizationInfo.setRoles(roles);
+        return authorizationInfo;
     }
 
     /**

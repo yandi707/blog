@@ -2,11 +2,15 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:util="http://www.springframework.org/schema/util"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 		http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
 		http://www.springframework.org/schema/context
-		http://www.springframework.org/schema/context/spring-context-4.3.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+		http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/mvc
+		http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util.xsd ">
 
 
     <!-- 开启包扫描-->
@@ -60,11 +64,13 @@
         <property name="securityManager" ref="securityManager"/>
         <!-- 身份认证失败，则跳转到登录页面的配置 -->
         <property name="loginUrl" value="../back/login.jsp"/><!--登录页面，-->
+        <!-- 权限验证失败跳转的页面，需要配合Spring的ExceptionHandler异常处理机制使用 -->
+        <property name="unauthorizedUrl" value="/unauthorized.jsp"/>
         <property name="filterChainDefinitions">
             <value>
                 /login.jsp=anon
                 /admin/**=authc
-<!--                /**= anon-->
+                /add/*=roles[teacher]
             </value>
         </property>
     </bean>
@@ -87,16 +93,7 @@
 
 
 
-    <!-- 自定义Realm -->
-   <!-- <bean id="bloggerRealm" class="wen.blog.realm.BloggerRealm">
-        &lt;!&ndash; 定义凭证匹配器 &ndash;&gt;
-        <property name="credentialsMatcher" ref="credentialsMatcher"/>
-    </bean>-->
 
-   <!-- <bean id="credentialsMatcher" class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
-        &lt;!&ndash; 加密算法名称 &ndash;&gt;
-        <property name="hashAlgorithmName" value="MD5"/>
-    </bean>-->
 
 
 

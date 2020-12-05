@@ -113,7 +113,7 @@ public class BlogController {
     }
 
     // 创作博文
-    @RequestMapping("/compose")
+    @RequestMapping("/add/compose")
     public ModelAndView compose() {
         ModelAndView modelAndView = new ModelAndView();
         // 获取所有博客类别实例

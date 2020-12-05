@@ -49,4 +49,9 @@ public class BloggerServiceImpl implements BloggerService {
         bloggerDao.updateBloggerInfo(blogger);
     }
 
+    @Override
+    public Blogger findBloggerByUsername(String username) {
+        return bloggerDao.findBloggerByUsername(username);
+    }
+
 }

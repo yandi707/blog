@@ -61,14 +61,14 @@
     <div class="leftMeun" id="leftMeun">
 
         <div id="logoDiv">
-            <p id="logoP"><img id="logo" alt="个人博客后台管理系统" src="../static/img/blogger/logo.png"></p>
+            <p id="logoP"><img id="logo" alt="TCGR后台管理系统" src="../static/img/blogger/logo.png"></p>
         </div>
 
         <div id="personInfor">
-            <p id="blogger">Stephanie</p>
-            <p><span>820352756@qq.com</span></p>
+            <p id="blogger">yandi</p>
+            <p><span>1337991430@qq.com</span></p>
             <p>
-                <a href="${pageContext.request.contextPath}/index.do">退出登录</a>
+                <a href="${pageContext.request.contextPath}/back/login.jsp">退出登录</a>
             </p>
         </div>
 
@@ -125,7 +125,7 @@
             <div role="tabpanel" class="tab-pane active" id="blog">
 
                 <div class="check-div form-inline">
-                    <a href="${pageContext.request.contextPath}/compose.do">
+                    <a href="${pageContext.request.contextPath}/add/compose.do">
                         <button class="btn btn-yellow btn-xs" data-toggle="modal">添加博客</button>
                     </a>
                 </div>

@@ -43,4 +43,8 @@
         where id  = 1
     </select>
 
+    <select id="findBloggerByUsername" parameterType="java.lang.String" resultType="Blogger">
+         select * from blogger where username = #{username}
+    </select>
+
 </mapper>

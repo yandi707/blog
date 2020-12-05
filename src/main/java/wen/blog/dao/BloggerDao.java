@@ -21,4 +21,7 @@ public interface BloggerDao {
     // 更新博主信息
     void updateBloggerInfo(Blogger blogger);
 
+    // shiro    权限验证
+    Blogger findBloggerByUsername(String username);
+
 }

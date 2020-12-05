@@ -11,6 +11,7 @@ public class Blogger implements Serializable {
     private String hint;
     private String address;
     private String phone;
+    private String role;
 
     public Blogger() {
     }
@@ -80,6 +81,14 @@ public class Blogger implements Serializable {
         this.phone = phone;
     }
 
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
     @Override
     public String toString() {
         return "Blogger{" +
@@ -90,7 +99,7 @@ public class Blogger implements Serializable {
                 ", hint='" + hint + '\'' +
                 ", address='" + address + '\'' +
                 ", phone='" + phone + '\'' +
+                ", role='" + role + '\'' +
                 '}';
     }
-
 }
