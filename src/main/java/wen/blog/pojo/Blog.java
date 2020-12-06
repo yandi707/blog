@@ -14,6 +14,7 @@ public class Blog implements Serializable {
     private String content;
     private String keyword;
     private int blogTypeId;
+    private String bloggerName;
 
     private String typeName;
     private int typeCount;
@@ -21,12 +22,13 @@ public class Blog implements Serializable {
     public Blog() {
     }
 
-    public Blog(String title, String summary, String content, String keyword, int blogTypeId) {
+    public Blog(String title, String summary, String content, String keyword, int blogTypeId , String bloggerName) {
         this.title = title;
         this.summary = summary;
         this.content = content;
         this.keyword = keyword;
         this.blogTypeId = blogTypeId;
+        this.bloggerName = bloggerName;
     }
 
     public Blog(Integer id, String title, String summary, String content, String keyword, int blogTypeId) {
@@ -126,6 +128,14 @@ public class Blog implements Serializable {
         this.typeCount = typeCount;
     }
 
+    public String getBloggerName() {
+        return bloggerName;
+    }
+
+    public void setBloggerName(String bloggerName) {
+        this.bloggerName = bloggerName;
+    }
+
     @Override
     public String toString() {
         return "Blog{" +
@@ -138,9 +148,9 @@ public class Blog implements Serializable {
                 ", content='" + content + '\'' +
                 ", keyword='" + keyword + '\'' +
                 ", blogTypeId=" + blogTypeId +
+                ", bloggerName='" + bloggerName + '\'' +
                 ", typeName='" + typeName + '\'' +
                 ", typeCount=" + typeCount +
                 '}';
     }
-
 }

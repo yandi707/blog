@@ -71,6 +71,7 @@
                 /login.jsp=anon
                 /admin/**=authc
                 /add/*=roles[teacher]
+<!--                /admin/send/*=roles[teacher]-->
             </value>
         </property>
     </bean>

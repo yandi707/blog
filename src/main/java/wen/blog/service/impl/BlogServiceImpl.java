@@ -63,6 +63,11 @@ public class BlogServiceImpl implements BlogService {
         return blogDao.getAllBlog();
     }
 
+    //获取登陆者自己的文章
+    public List<Blog> getOneselfBlog(String username){
+        return blogDao.getOneselfBlog(username);
+    }
+
     @Override
     public Blog getBlogById(int id) {
         return blogDao.getBlogById(id);

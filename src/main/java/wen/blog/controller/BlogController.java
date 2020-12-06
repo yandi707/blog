@@ -128,7 +128,7 @@ public class BlogController {
     @RequestMapping("/getContent")
     public boolean getContent(@RequestBody Blog blog) {
         if (!blog.getTitle().equals("")) {
-            Blog savedBlog = new Blog(blog.getTitle(), blog.getSummary(), blog.getContent(), blog.getKeyword(), blog.getBlogTypeId());
+            Blog savedBlog = new Blog(blog.getTitle(), blog.getSummary(), blog.getContent(), blog.getKeyword(), blog.getBlogTypeId(), blog.getBloggerName());
             System.out.println(savedBlog.toString());
             blogService.insertBlog(savedBlog);
             return true;

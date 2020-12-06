@@ -22,6 +22,9 @@ public interface BlogDao {
     // 获取所有博客
     List<Blog> getAllBlog();
 
+    //获取登陆者自己的文章
+    List<Blog> getOneselfBlog(String username);
+
     // 刷新博客的访问量
     void updateClickHitById(int id);
 

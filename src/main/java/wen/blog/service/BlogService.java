@@ -19,6 +19,9 @@ public interface BlogService {
     // 获取所有博客
     List<Blog> getAllBlog();
 
+    //获取登陆者自己的博文
+    List<Blog> getOneselfBlog(String username);
+
     // 博客详情
     Blog getBlogById(int id);
 

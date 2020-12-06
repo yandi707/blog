@@ -1,16 +1,21 @@
 package wen.blog.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
+import wen.blog.pojo.Blog;
 import wen.blog.pojo.Blogger;
 import wen.blog.pojo.Comment;
 import wen.blog.pojo.Reply;
 import wen.blog.service.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
+
 import java.util.List;
 
 @Controller
@@ -32,11 +37,15 @@ public class BloggerController {
 
     // 管理员界面
     @RequestMapping("/manage")
-    public ModelAndView manage() throws Exception {
+    public ModelAndView manage(HttpSession session) throws Exception {
+        String username = (String) session.getAttribute("userName");
         ModelAndView modelAndView = new ModelAndView();
 
         // 博客
-        modelAndView.addObject("blogList", blogService.getAllBlog());
+        //modelAndView.addObject("blogList", blogService.getAllBlog());
+
+        // 获取自己的文章
+        modelAndView.addObject("blogSendList", blogService.getOneselfBlog(username));
 
         // 类型
         modelAndView.addObject("blogTypeList", blogTypeService.getAllTypes());
@@ -66,6 +75,12 @@ public class BloggerController {
 
         modelAndView.setViewName("../back/admin");
         return modelAndView;
+    }
+    //这个不行
+    @RequestMapping("/send/sendList")
+    public Model sendList(Model model){
+        model.addAttribute("blogList",blogService.getAllBlog());
+        return model;
     }
 
     @ResponseBody

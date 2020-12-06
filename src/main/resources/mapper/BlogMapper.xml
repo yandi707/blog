@@ -77,8 +77,8 @@
 
     <!-- 添加博客 -->
     <insert id="insertBlog" parameterType="wen.blog.pojo.Blog">
-        insert into blog (title, summary, releaseDate, clickHit, commentHit, content, keyword, blogTypeId)
-        values (#{title}, #{summary}, now(), 0, 0, #{content}, #{keyword}, #{blogTypeId})
+        insert into blog (title, summary, releaseDate, clickHit, commentHit, content, keyword, blogTypeId , bloggerName)
+        values (#{title}, #{summary}, now(), 0, 0, #{content}, #{keyword}, #{blogTypeId} ,#{bloggerName})
     </insert>
 
     <!-- 删除博客 -->
@@ -111,6 +111,11 @@
     <!-- 获取所有博客 -->
     <select id="getAllBlog" resultMap="ForeBlog">
         select id, title, summary, releaseDate from blog
+    </select>
+
+    <!-- 获取登陆者自己的文章 -->
+    <select id="getOneselfBlog" parameterType="java.lang.String" resultMap="ForeBlog">
+        select id, title, summary, releaseDate from blog where bloggerName = #{username}
     </select>
 
     <!-- 实现关键字查找 -->

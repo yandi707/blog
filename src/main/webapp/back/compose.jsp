@@ -21,7 +21,7 @@
 <!-- Custom Fonts -->
 <link href="../static/search-edit/assets/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 <link href="../static/search-edit/assets/css/pe-icons.css" rel="stylesheet">
-
+<%=request.getSession().getAttribute("userName") %>
 <!-- jQuery -->
 <script src="../static/search-edit/assets/js/jquery.js"></script>
 
@@ -61,7 +61,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <form id="blogForm" method="post" style="width: 660px;">
-
+                        <input type="hidden" name="bloggerName" id="bloggerName" value="${userName}"/>
                         <p><input type="text" class="form-control" name="title"
                                   placeholder="博文标题 *" id="title" required
                                   data-validation-required-message="Please enter your title."/>
@@ -98,7 +98,7 @@
 <script>
     $(function () {
         $("#blogCommit").click(function () {
-
+            var bloggerName = $("#bloggerName").val();
             var title = $("#title").val();
             var summary = $("#summary").val();
             var content = editor.html();
@@ -107,13 +107,14 @@
 
             var url = "${pageContext.request.contextPath}/getContent.do";
             var blog = {
+                bloggerName: bloggerName,
                 title: title,
                 summary: summary,
                 content: content,
                 keyword: keyword,
                 blogTypeId: blogTypeId
             };
-
+            alert(bloggerName);
             $.ajax({
                 url: url,
                 contentType: "application/json",
