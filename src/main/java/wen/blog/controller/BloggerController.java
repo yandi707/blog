@@ -78,9 +78,10 @@ public class BloggerController {
     }
     //这个不行
     @RequestMapping("/send/sendList")
-    public Model sendList(Model model){
-        model.addAttribute("blogList",blogService.getAllBlog());
-        return model;
+    @ResponseBody
+    public List sendList(){
+       List<Blog> sendList = blogService.getAllBlog();
+        return sendList;
     }
 
     @ResponseBody

@@ -90,7 +90,7 @@
 
         <%-- 博文发布管理 --%>
         <div class="meun-item meun-item-active" href="#blogSendManger" aria-controls="sour" role="tab" data-toggle="tab">
-            <span onclick="jumpSendManger()"><img src="../static/img/blogger/icon_source.png">博文发布管理</span>
+            <span id="jumpSendManger"><img src="../static/img/blogger/icon_source.png">博文发布管理</span>
         </div>
 
         <div class="meun-title">评论</div>
@@ -256,8 +256,8 @@
                             <c:forEach items="${blogList}" var="blog">
                                 <div class="row">
                                     <a href="${pageContext.request.contextPath}/blog/.do?id=${blog.id}">
-                                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
-                                                ${blog.id}
+                                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1" id="blogId">
+
                                         </div>
                                         <div id="topBlogSendManger" class="col-lg-4 col-md-4 col-sm-4 col-xs-4" role="button"
                                              data-toggle="collapse" data-parent="#accordion" href="#collapseSystem"
@@ -1472,18 +1472,35 @@
 </script>
 
 <script>
-    var myList='';
-        function jumpSendManger() {
+    $(function(){
+        $("#jumpSendManger").click(function () {
             var url = "${pageContext.request.contextPath}/admin/send/sendList.do";
             $.ajax({
                 url: url,
                 type: "get",
-                complete: function (result) {
-                   myList=result;
+                success: function (result) {
+                    result.forEach(item,index)=>{
+                        console.log(item);
+                    }
+
+                }
+            })
+        })
+    })
+        /*function jumpSendManger() {
+            var url = "${pageContext.request.contextPath}/admin/send/sendList.do";
+            $.ajax({
+                url: url,
+                type: "get",
+                success: function (result) {
+                    result.forEach(item,index)=>{
+                        console.log(item);
+                    }
+
                 }
             })
 
-        }
+        }*/
 </script>
 
 
