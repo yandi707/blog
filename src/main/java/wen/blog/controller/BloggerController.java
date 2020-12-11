@@ -77,11 +77,19 @@ public class BloggerController {
         return modelAndView;
     }
     //这个不行
-    @RequestMapping("/send/sendList")
+   /* @RequestMapping("/send/sendList")
     @ResponseBody
     public List sendList(){
        List<Blog> sendList = blogService.getAllBlog();
         return sendList;
+    }*/
+
+    @RequestMapping("/send/sendList")
+    public ModelAndView sendList(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("blogList", blogService.getAllBlog());
+        modelAndView.setViewName("../back/sendManger");
+        return modelAndView;
     }
 
     @ResponseBody

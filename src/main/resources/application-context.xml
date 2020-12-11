@@ -68,6 +68,7 @@
         <property name="unauthorizedUrl" value="/unauthorized.jsp"/>
         <property name="filterChainDefinitions">
             <value>
+                /static/**=anon
                 /login.jsp=anon
                 /admin/**=authc
                 /add/*=roles[teacher]

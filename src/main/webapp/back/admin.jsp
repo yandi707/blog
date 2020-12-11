@@ -8,48 +8,7 @@
 
 <head>
     <title>个人博客后台管理系统</title>
-    <script src="../static/js/blogger/jquery.min.js"></script>
-    <script src="../static/js/blogger/bootstrap.min.js"></script>
-    <script>
-        $(function () {
-            $(".meun-item").click(function () {
-                $(".meun-item").removeClass("meun-item-active");
-                $(this).addClass("meun-item-active");
-                var itmeObj = $(".meun-item").find("img");
-                itmeObj.each(function () {
-                    var items = $(this).attr("src");
-                    items = items.replace("_grey.png", ".png");
-                    items = items.replace(".png", "_grey.png")
-                    $(this).attr("src", items);
-                });
-                var attrObj = $(this).find("img").attr("src");
-                ;
-                attrObj = attrObj.replace("_grey.png", ".png");
-                $(this).find("img").attr("src", attrObj);
-            });
-            $("#topAD").click(function () {
-                $("#topA").toggleClass(" glyphicon-triangle-right");
-                $("#topA").toggleClass(" glyphicon-triangle-bottom");
-            });
-            $("#topBD").click(function () {
-                $("#topB").toggleClass(" glyphicon-triangle-right");
-                $("#topB").toggleClass(" glyphicon-triangle-bottom");
-            });
-            $("#topCD").click(function () {
-                $("#topC").toggleClass(" glyphicon-triangle-right");
-                $("#topC").toggleClass(" glyphicon-triangle-bottom");
-            });
-            $(".toggle-btn").click(function () {
-                $("#leftMeun").toggleClass("show");
-                $("#rightContent").toggleClass("pd0px");
-            })
-            $("#topBlogSendManger").click(function () {
-                $("#BlogSendM").toggleClass(" glyphicon-triangle-right");
-                $("#BlogSendM").toggleClass(" glyphicon-triangle-bottom");
-            });
-        })
-    </script>
-    <script src="../static/js/blogger/respond.min.js"></script>
+
     <link href="../static/css/blogger/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../static/css/blogger/common.css"/>
     <link rel="stylesheet" type="text/css" href="../static/css/blogger/slide.css"/>
@@ -89,8 +48,11 @@
         </div>
 
         <%-- 博文发布管理 --%>
-        <div class="meun-item meun-item-active" href="#blogSendManger" aria-controls="sour" role="tab" data-toggle="tab">
+       <%-- <div class="meun-item meun-item-active" href="#blogSendManger" aria-controls="sour" role="tab" data-toggle="tab">
             <span id="jumpSendManger"><img src="../static/img/blogger/icon_source.png">博文发布管理</span>
+        </div>--%>
+        <div class="meun-item meun-item-active" aria-controls="sour" role="tab">
+            <a href="${pageContext.request.contextPath}/admin/send/sendList.do"><img src="../static/img/blogger/icon_source.png">博文发布管理</a>
         </div>
 
         <div class="meun-title">评论</div>
@@ -1151,6 +1113,48 @@
 </div>
 
 <script src="../static/js/blogger/jquery.nouislider.js"></script>
+<script src="../static/js/blogger/jquery.min.js"></script>
+<script src="../static/js/blogger/bootstrap.min.js"></script>
+<script src="../static/js/blogger/respond.min.js"></script>
+<script>
+    $(function () {
+        $(".meun-item").click(function () {
+            $(".meun-item").removeClass("meun-item-active");
+            $(this).addClass("meun-item-active");
+            var itmeObj = $(".meun-item").find("img");
+            itmeObj.each(function () {
+                var items = $(this).attr("src");
+                items = items.replace("_grey.png", ".png");
+                items = items.replace(".png", "_grey.png")
+                $(this).attr("src", items);
+            });
+            var attrObj = $(this).find("img").attr("src");
+            ;
+            attrObj = attrObj.replace("_grey.png", ".png");
+            $(this).find("img").attr("src", attrObj);
+        });
+        $("#topAD").click(function () {
+            $("#topA").toggleClass(" glyphicon-triangle-right");
+            $("#topA").toggleClass(" glyphicon-triangle-bottom");
+        });
+        $("#topBD").click(function () {
+            $("#topB").toggleClass(" glyphicon-triangle-right");
+            $("#topB").toggleClass(" glyphicon-triangle-bottom");
+        });
+        $("#topCD").click(function () {
+            $("#topC").toggleClass(" glyphicon-triangle-right");
+            $("#topC").toggleClass(" glyphicon-triangle-bottom");
+        });
+        $(".toggle-btn").click(function () {
+            $("#leftMeun").toggleClass("show");
+            $("#rightContent").toggleClass("pd0px");
+        })
+        $("#topBlogSendManger").click(function () {
+            $("#BlogSendM").toggleClass(" glyphicon-triangle-right");
+            $("#BlogSendM").toggleClass(" glyphicon-triangle-bottom");
+        });
+    })
+</script>
 
 <%-- 添加博客类型 --%>
 <script>
@@ -1479,28 +1483,11 @@
                 url: url,
                 type: "get",
                 success: function (result) {
-                    result.forEach(item,index)=>{
-                        console.log(item);
-                    }
-
+                    console.log(result);
                 }
             })
         })
     })
-        /*function jumpSendManger() {
-            var url = "${pageContext.request.contextPath}/admin/send/sendList.do";
-            $.ajax({
-                url: url,
-                type: "get",
-                success: function (result) {
-                    result.forEach(item,index)=>{
-                        console.log(item);
-                    }
-
-                }
-            })
-
-        }*/
 </script>
 
 
