@@ -9,12 +9,12 @@
 <head>
     <title>个人博客后台管理系统</title>
 
-    <link href="../static/css/blogger/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../static/css/blogger/common.css"/>
-    <link rel="stylesheet" type="text/css" href="../static/css/blogger/slide.css"/>
-    <link rel="stylesheet" type="text/css" href="../static/css/blogger/bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="../static/css/blogger/flat-ui.min.css"/>
-    <link rel="stylesheet" type="text/css" href="../static/css/blogger/jquery.nouislider.css">
+    <link href="/static/css/blogger/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/static/css/blogger/common.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/blogger/slide.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/blogger/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/blogger/flat-ui.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/blogger/jquery.nouislider.css">
 </head>
 
 <body>
@@ -24,7 +24,7 @@
     <div class="leftMeun" id="leftMeun">
 
         <div id="logoDiv">
-            <p id="logoP"><img id="logo" alt="TCGR后台管理系统" src="../static/img/blogger/logo.png"></p>
+            <p id="logoP"><img id="logo" alt="TCGR后台管理系统" src="/static/img/blogger/logo.png"></p>
         </div>
 
         <div id="personInfor">
@@ -38,13 +38,13 @@
         <div class="meun-title">博客</div>
 
         <%-- 博文管理 --%>
-        <div class="meun-item meun-item-active" href="#blog" aria-controls="sour" role="tab" data-toggle="tab">
-            <img src="../static/img/blogger/icon_source.png">博文管理
+        <div class="meun-item meun-item" href="#blog" aria-controls="sour" role="tab" data-toggle="tab">
+            <img src="/static/img/blogger/icon_source.png">博文管理
         </div>
 
         <%-- 博文类别管理 --%>
         <div class="meun-item" href="#blogType" aria-controls="user" role="tab" data-toggle="tab">
-            <img src="../static/img/blogger/icon_user_grey.png">博文类别
+            <img src="/static/img/blogger/icon_user_grey.png">博文类别
         </div>
 
         <%-- 博文发布管理 --%>
@@ -52,33 +52,33 @@
              <span id="jumpSendManger"><img src="../static/img/blogger/icon_source.png">博文发布管理</span>
          </div>--%>
         <div class="meun-item meun-item-active" aria-controls="sour" role="tab">
-            <a href="${pageContext.request.contextPath}/admin/send/sendList.do"><img src="../static/img/blogger/icon_source.png">博文发布管理</a>
+            <a href="${pageContext.request.contextPath}/admin/send/sendList.do"><img src="/static/img/blogger/icon_source.png">博文发布管理</a>
         </div>
 
         <div class="meun-title">评论</div>
 
         <%-- 评论管理 --%>
         <div class="meun-item" href="#comment" aria-controls="user" role="tab" data-toggle="tab">
-            <img src="../static/img/blogger/icon_change_grey.png">浏览者评论
+            <img src="/static/img/blogger/icon_change_grey.png">浏览者评论
         </div>
 
         <%-- 回复评论 --%>
         <div class="meun-item" href="#reply" aria-controls="user" role="tab" data-toggle="tab">
-            <img src="../static/img/blogger/icon_user_grey.png">回复评论
+            <img src="/static/img/blogger/icon_user_grey.png">回复评论
         </div>
 
         <div class="meun-title">第三方</div>
 
         <%-- 友情链接 --%>
         <div class="meun-item" href="#link" aria-controls="user" role="tab" data-toggle="tab">
-            <img src="../static/img/blogger/icon_link_grey.png">友情链接
+            <img src="/static/img/blogger/icon_link_grey.png">友情链接
         </div>
 
         <div class="meun-title">个人</div>
 
         <%-- 个人信息 --%>
         <div class="meun-item" href="#info" aria-controls="user" role="tab" data-toggle="tab">
-            <img src="../static/img/blogger/icon_chara_grey.png">个人信息
+            <img src="/static/img/blogger/icon_chara_grey.png">个人信息
         </div>
 
     </div>
@@ -219,7 +219,7 @@
                                 <div class="row">
                                     <a href="${pageContext.request.contextPath}/blog/.do?id=${blog.id}">
                                         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1" id="blogId">
-
+                                                ${blog.id}
                                         </div>
                                         <div id="topBlogSendManger" class="col-lg-4 col-md-4 col-sm-4 col-xs-4" role="button"
                                              data-toggle="collapse" data-parent="#accordion" href="#collapseSystem"
@@ -1112,10 +1112,10 @@
 
 </div>
 
-<script src="../static/js/blogger/jquery.nouislider.js"></script>
-<script src="../static/js/blogger/jquery.min.js"></script>
-<script src="../static/js/blogger/bootstrap.min.js"></script>
-<script src="../static/js/blogger/respond.min.js"></script>
+<script src="/static/js/blogger/jquery.nouislider.js"></script>
+<script src="/static/js/blogger/jquery.min.js"></script>
+<script src="/static/js/blogger/bootstrap.min.js"></script>
+<script src="/static/js/blogger/respond.min.js"></script>
 <script>
     $(function () {
         $(".meun-item").click(function () {
