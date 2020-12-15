@@ -19,7 +19,6 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
-@RequestMapping("/admin")
 public class BloggerController {
 
     @Resource
@@ -84,6 +83,8 @@ public class BloggerController {
         return sendList;
     }*/
 
+
+   //回复博主消息的列表
     @RequestMapping("/send/sendList")
     public ModelAndView sendList(){
         ModelAndView modelAndView = new ModelAndView();

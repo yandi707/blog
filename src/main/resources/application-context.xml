@@ -70,9 +70,9 @@
             <value>
                 /static/**=anon
                 /login.jsp=anon
-                /admin/**=authc
+<!--                /admin/**=authc-->
                 /add/*=roles[teacher]
-<!--                /admin/send/*=roles[teacher]-->
+                /send/*=roles[teacher]
             </value>
         </property>
     </bean>
@@ -92,12 +92,6 @@
 
     <!--自定义凭证-->
     <bean id="bloggerRealm" class="wen.blog.realm.BloggerRealm"/>
-
-
-
-
-
-
 
 </beans>
 
