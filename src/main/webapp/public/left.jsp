@@ -18,47 +18,48 @@
     <div class="meun-title">博客</div>
 
     <%-- 博文管理 --%>
-    <div class="meun-item meun-item" href="#blog" aria-controls="sour" role="tab" data-toggle="tab">
-        <img src="/static/img/blogger/icon_source.png">博文管理
+    <div class="meun-item " aria-controls="sour" role="tab">
+        <a href="${pageContext.request.contextPath}/my/getOneselfList.do"> <img src="/static/img/blogger/icon_source.png">博文管理</a>
     </div>
 
     <%-- 博文类别管理 --%>
-    <div class="meun-item" href="#blogType" aria-controls="user" role="tab" data-toggle="tab">
-        <img src="/static/img/blogger/icon_user_grey.png">博文类别
+    <div class="meun-item " aria-controls="user" role="tab">
+        <a href="${pageContext.request.contextPath}/wz/typeList.do"><img src="/static/img/blogger/icon_user_grey.png">博文类别</a>
     </div>
 
     <%-- 博文发布管理 --%>
     <%-- <div class="meun-item meun-item-active" href="#blogSendManger" aria-controls="sour" role="tab" data-toggle="tab">
          <span id="jumpSendManger"><img src="../static/img/blogger/icon_source.png">博文发布管理</span>
      </div>--%>
-    <div class="meun-item meun-item-active" aria-controls="sour" role="tab">
+    <div class="meun-item " aria-controls="sour" role="tab">
         <a href="${pageContext.request.contextPath}/send/sendList.do"><img src="/static/img/blogger/icon_source.png">博文发布管理</a>
     </div>
 
     <div class="meun-title">评论</div>
 
     <%-- 评论管理 --%>
-    <div class="meun-item" href="#comment" aria-controls="user" role="tab" data-toggle="tab">
-        <img src="/static/img/blogger/icon_change_grey.png">浏览者评论
+    <div class="meun-item " aria-controls="sour" role="tab">
+        <a href="${pageContext.request.contextPath}/pl/commentList.do"> <img src="/static/img/blogger/icon_change_grey.png">浏览者评论</a>
     </div>
 
     <%-- 回复评论 --%>
-    <div class="meun-item" href="#reply" aria-controls="user" role="tab" data-toggle="tab">
-        <img src="/static/img/blogger/icon_user_grey.png">回复评论
+    <div class="meun-item" aria-controls="user" role="tab" >
+        <a href="${pageContext.request.contextPath}/hf/replyList.do"><img src="/static/img/blogger/icon_user_grey.png">回复评论</a>
     </div>
 
     <div class="meun-title">第三方</div>
 
     <%-- 友情链接 --%>
-    <div class="meun-item" href="#link" aria-controls="user" role="tab" data-toggle="tab">
-        <img src="/static/img/blogger/icon_link_grey.png">友情链接
+    <div class="meun-item" aria-controls="user" role="tab" >
+        <a href="${pageContext.request.contextPath}/lj/linkList.do"> <img src="/static/img/blogger/icon_link_grey.png">友情链接</a>
     </div>
 
     <div class="meun-title">个人</div>
 
     <%-- 个人信息 --%>
-    <div class="meun-item" href="#info" aria-controls="user" role="tab" data-toggle="tab">
-        <img src="/static/img/blogger/icon_chara_grey.png">个人信息
+    <div class="meun-item" aria-controls="user" role="tab">
+        <a href="${pageContext.request.contextPath}/gr/informationList.do"> <img src="/static/img/blogger/icon_chara_grey.png">个人信息</a>
+
     </div>
 
 </div>

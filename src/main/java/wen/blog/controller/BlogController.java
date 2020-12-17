@@ -119,7 +119,7 @@ public class BlogController {
         // 获取所有博客类别实例
         List<BlogType> blogTypeList = blogTypeService.getAllTypes();
         modelAndView.addObject("blogTypeList", blogTypeList);
-        modelAndView.setViewName("../back/compose");
+        modelAndView.setViewName("../back/blog/compose");
         return modelAndView;
     }
 
@@ -148,7 +148,7 @@ public class BlogController {
 
             List<BlogType> blogTypeList = blogTypeService.getAllTypes();
             modelAndView.addObject("blogTypeList", blogTypeList);
-            modelAndView.setViewName("../back/edit");
+            modelAndView.setViewName("../back/blog/edit");
         }
         return modelAndView;
     }

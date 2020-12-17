@@ -59,7 +59,7 @@
                     success: function (result) {
                         if (result === true) {
                             alert("登陆成功！");
-                            window.location.href = "${pageContext.request.contextPath}/manage.do";
+                            window.location.href = "${pageContext.request.contextPath}/my/getOneselfList.do";
                         } else if (result === false) {
                             alert("登陆失败，用户名或密码错误！");
                             location.reload();

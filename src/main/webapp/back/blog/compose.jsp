@@ -6,24 +6,24 @@
 
 <html lang="ch">
 
-<link rel="stylesheet" href="../static/kindeditor/themes/default/default.css"/>
-<link rel="stylesheet" href="../static/kindeditor/plugins/code/prettify.css"/>
-<script charset="utf-8" src="../static/kindeditor/kindeditor-all.js"></script>
-<script charset="utf-8" src="../static/kindeditor/lang/zh-CN.js"></script>
-<script charset="utf-8" src="../static/kindeditor/plugins/code/prettify.js"></script>
+<link rel="stylesheet" href="../../static/kindeditor/themes/default/default.css"/>
+<link rel="stylesheet" href="../../static/kindeditor/plugins/code/prettify.css"/>
+<script charset="utf-8" src="../../static/kindeditor/kindeditor-all.js"></script>
+<script charset="utf-8" src="../../static/kindeditor/lang/zh-CN.js"></script>
+<script charset="utf-8" src="../../static/kindeditor/plugins/code/prettify.js"></script>
 <!-- Bootstrap Core CSS -->
-<link href="../static/search-edit/assets/css/bootstrap.min.css" rel="stylesheet">
-<link href="../static/search-edit/assets/css/animate.css" rel="stylesheet">
+<link href="../../static/search-edit/assets/css/bootstrap.min.css" rel="stylesheet">
+<link href="../../static/search-edit/assets/css/animate.css" rel="stylesheet">
 
 <!-- Custom CSS -->
-<link href="../static/search-edit/assets/css/style.css" rel="stylesheet">
+<link href="../../static/search-edit/assets/css/style.css" rel="stylesheet">
 
 <!-- Custom Fonts -->
-<link href="../static/search-edit/assets/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-<link href="../static/search-edit/assets/css/pe-icons.css" rel="stylesheet">
+<link href="../../static/search-edit/assets/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="../../static/search-edit/assets/css/pe-icons.css" rel="stylesheet">
 <%=request.getSession().getAttribute("userName") %>
 <!-- jQuery -->
-<script src="../static/search-edit/assets/js/jquery.js"></script>
+<script src="../../static/search-edit/assets/js/jquery.js"></script>
 
 <script>
     var editor;
@@ -124,7 +124,7 @@
                 success: function (result) {
                     if (result === true) {
                         alert("发表博客成功！");
-                        window.location.href = "${pageContext.request.contextPath}/admin/manage.do";
+                        window.location.href = "${pageContext.request.contextPath}/my/getOneselfList.do";
                     } else if (result === false) {
                         alert("发表博客失败！");
                         location.reload();
@@ -136,13 +136,13 @@
     })
 </script>
 <!-- Bootstrap Core JavaScript -->
-<script src="../static/search-edit/assets/js/bootstrap.min.js"></script>
+<script src="../../static/search-edit/assets/js/bootstrap.min.js"></script>
 <!-- Plugin JavaScript -->
-<script src="../static/search-edit/assets/js/plugins.js"></script>
+<script src="../../static/search-edit/assets/js/plugins.js"></script>
 <!-- Plugins -->
-<script src="../static/search-edit/assets/js/jqBootstrapValidation.js"></script>
-<script src="../static/search-edit/assets/js/contact_me.js"></script>
+<script src="../../static/search-edit/assets/js/jqBootstrapValidation.js"></script>
+<script src="../../static/search-edit/assets/js/contact_me.js"></script>
 <!-- Custom JavaScript -->
-<script src="../static/search-edit/assets/js/init.js"></script>
+<script src="../../static/search-edit/assets/js/init.js"></script>
 
 </body>

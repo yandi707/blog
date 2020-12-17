@@ -35,28 +35,90 @@ public class BloggerController {
     private BloggerService bloggerService;
 
     // 管理员界面
-    @RequestMapping("/manage")
-    public ModelAndView manage(HttpSession session) throws Exception {
+//    @RequestMapping("/manage")
+//    public ModelAndView manage(HttpSession session) throws Exception {
+//        String username = (String) session.getAttribute("userName");
+//        ModelAndView modelAndView = new ModelAndView();
+//
+//        // 博客
+//        //modelAndView.addObject("blogList", blogService.getAllBlog());
+//
+//        // 获取自己的文章
+//        //modelAndView.addObject("blogSendList", blogService.getOneselfBlog(username));
+//
+//        // 类型
+//        //modelAndView.addObject("blogTypeList", blogTypeService.getAllTypes());
+//
+//        // 评论
+////        List<Comment> commentList = commentService.getAllComment();
+////        for (Comment comment : commentList) {
+////            comment.setBlogTitle(commentService.getTitleByBlogId(comment.getBlog_id()));
+////        }
+////        modelAndView.addObject("commentList", commentList);
+//
+//        // 回复
+//        List<Reply> replyList = replyService.getAllReply();
+//        for (Reply reply : replyList) {
+//            Integer id = reply.getId();
+//            reply.setBlog_id(replyService.getBlogIdByReplyId(id));
+//            reply.setBlogTitle(replyService.getBlogTitleByReplyId(id));
+//            System.out.println(reply.toString());
+//        }
+//        modelAndView.addObject("replyList", replyList);
+//
+//        // 链接
+//        modelAndView.addObject("linkList", linkService.getAllLink());
+//
+//        // 博主
+//        modelAndView.addObject("blogger", bloggerService.getBloggerInfo());
+//
+//        modelAndView.setViewName("../back/admin");
+//        return modelAndView;
+//    }
+
+    //获取自己的文章
+    @RequestMapping("/my/getOneselfList")
+    public ModelAndView getOneselfList(HttpSession session){
         String username = (String) session.getAttribute("userName");
         ModelAndView modelAndView = new ModelAndView();
-
-        // 博客
-        //modelAndView.addObject("blogList", blogService.getAllBlog());
-
-        // 获取自己的文章
         modelAndView.addObject("blogSendList", blogService.getOneselfBlog(username));
+        modelAndView.setViewName("../back/blog/blogManger");
+        return modelAndView;
+    }
 
-        // 类型
+    //文章类型
+    @RequestMapping("/wz/typeList")
+    public ModelAndView typeList(){
+        ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("blogTypeList", blogTypeService.getAllTypes());
+        modelAndView.setViewName("../back/type/typeManger");
+        return modelAndView;
+    }
 
-        // 评论
+   //回复博主消息的列表
+    @RequestMapping("/send/sendList")
+    public ModelAndView sendList(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("blogList", blogService.getAllBlog());
+        modelAndView.setViewName("../back/send/sendManger");
+        return modelAndView;
+    }
+    //浏览者评论
+    @RequestMapping("/pl/commentList")
+    public ModelAndView commentList(){
+        ModelAndView modelAndView = new ModelAndView();
         List<Comment> commentList = commentService.getAllComment();
         for (Comment comment : commentList) {
             comment.setBlogTitle(commentService.getTitleByBlogId(comment.getBlog_id()));
         }
         modelAndView.addObject("commentList", commentList);
-
-        // 回复
+        modelAndView.setViewName("../back/comment/commentManger");
+        return modelAndView;
+    }
+    //回复评论
+    @RequestMapping("/hf/replyList")
+    public ModelAndView replyList(){
+        ModelAndView modelAndView = new ModelAndView();
         List<Reply> replyList = replyService.getAllReply();
         for (Reply reply : replyList) {
             Integer id = reply.getId();
@@ -65,34 +127,25 @@ public class BloggerController {
             System.out.println(reply.toString());
         }
         modelAndView.addObject("replyList", replyList);
-
-        // 链接
-        modelAndView.addObject("linkList", linkService.getAllLink());
-
-        // 博主
-        modelAndView.addObject("blogger", bloggerService.getBloggerInfo());
-
-        modelAndView.setViewName("../back/admin");
+        modelAndView.setViewName("../back/reply/replyManger");
         return modelAndView;
     }
-    //这个不行
-   /* @RequestMapping("/send/sendList")
-    @ResponseBody
-    public List sendList(){
-       List<Blog> sendList = blogService.getAllBlog();
-        return sendList;
-    }*/
-
-
-   //回复博主消息的列表
-    @RequestMapping("/send/sendList")
-    public ModelAndView sendList(){
+    //友情链接
+    @RequestMapping("/lj/linkList")
+    public ModelAndView linkList(){
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.addObject("blogList", blogService.getAllBlog());
-        modelAndView.setViewName("../back/sendManger");
+        modelAndView.addObject("linkList", linkService.getAllLink());
+        modelAndView.setViewName("../back/link/linkManger");
         return modelAndView;
     }
-
+    //个人信息
+    @RequestMapping("/gr/informationList")
+    public ModelAndView informationList(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("blogger", bloggerService.getBloggerInfo());
+        modelAndView.setViewName("../back/information/informationManger");
+        return modelAndView;
+    }
     @ResponseBody
     @RequestMapping("/modifyBloggerInfo")
     public boolean modifyBloggerInfo(@RequestBody Blogger blogger) {
