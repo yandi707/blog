@@ -152,6 +152,22 @@ public class BlogController {
         }
         return modelAndView;
     }
+    // 由 id 转到编辑页面
+    @RequestMapping("/send/sendTurnToEdit/{id}")
+    public ModelAndView sendTurnToEdit(@RequestParam(required = false) Integer id) {
+        ModelAndView modelAndView = new ModelAndView();
+        if (id != null) {
+
+            Blog blog = blogService.getBlogById(id);
+            modelAndView.addObject("blog", blog);
+            System.out.println(blog.toString());
+
+            List<BlogType> blogTypeList = blogTypeService.getAllTypes();
+            modelAndView.addObject("blogTypeList", blogTypeList);
+            modelAndView.setViewName("../back/send/edit");
+        }
+        return modelAndView;
+    }
 
     // 获取博文实体进行更新
     @ResponseBody

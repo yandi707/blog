@@ -75,7 +75,7 @@
                                     </a>
 
                                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                                        <a href="${pageContext.request.contextPath}/turnToEdit/.do?id=${blog.id}">
+                                        <a href="${pageContext.request.contextPath}/send/sendTurnToEdit/.do?id=${blog.id}">
                                             <button class="btn btn-success btn-xs" data-toggle="modal">查看</button>
                                         </a>
 

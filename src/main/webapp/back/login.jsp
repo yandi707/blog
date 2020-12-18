@@ -58,7 +58,6 @@
                     dataType: "JSON",
                     success: function (result) {
                         if (result === true) {
-                            alert("登陆成功！");
                             window.location.href = "${pageContext.request.contextPath}/my/getOneselfList.do";
                         } else if (result === false) {
                             alert("登陆失败，用户名或密码错误！");
@@ -70,6 +69,20 @@
 
             }
         }
+
+        $(function () {
+            $(document).keydown(function(e){
+                var event = e || window.event;
+                if (e.keyCode == 13) {
+                    if(e.preventDefault) {
+                        event .preventDefault();
+                    }else{
+                        event .returnValue = false;
+                    }
+                    $('#loginBtn').click();
+                }
+            })
+        })
 
     </script>
 
