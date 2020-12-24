@@ -19,7 +19,10 @@ public class Blog implements Serializable {
     private String typeName;
     private int typeCount;
 
-    public Blog() {
+    private String bhMessage;
+    private String shType;
+
+    public  Blog() {
     }
 
     public Blog(String title, String summary, String content, String keyword, int blogTypeId , String bloggerName) {
@@ -38,6 +41,22 @@ public class Blog implements Serializable {
         this.content = content;
         this.keyword = keyword;
         this.blogTypeId = blogTypeId;
+    }
+
+    public String getShType() {
+        return shType;
+    }
+
+    public void setShType(String shType) {
+        this.shType = shType;
+    }
+
+    public String getBhMessage() {
+        return bhMessage;
+    }
+
+    public void setBhMessage(String bhMessage) {
+        this.bhMessage = bhMessage;
     }
 
     public Integer getId() {

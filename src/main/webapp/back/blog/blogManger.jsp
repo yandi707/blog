@@ -92,6 +92,42 @@
                         </c:if>
                     </div>
 
+                    <div class="tablebody">
+                        <c:if test="${empty blogSendList}">
+                            Null Message for more blogs.
+                        </c:if>
+                        <c:if test="${!empty blogSendList}">
+                            <c:forEach items="${blogSendList}" var="blog">
+                                <div class="row">
+                                    <a href="${pageContext.request.contextPath}/blog/.do?id=${blog.id}">
+                                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                                                ${blog.id}
+                                        </div>
+                                        <div id="topAD5" class="col-lg-4 col-md-4 col-sm-4 col-xs-4" role="button"
+                                             data-toggle="collapse" data-parent="#accordion" href="#collapseSystem"
+                                             aria-expanded="true" aria-controls="collapseOne">
+                                            <span id="topA5"
+                                                  class="glyphicon">${blog.title}</span>
+                                        </div>
+                                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">${blog.summary}</div>
+                                    </a>
+
+                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                        <a href="${pageContext.request.contextPath}/turnToEdit/.do?id=${blog.id}">
+                                            <button class="btn btn-success btn-xs" data-toggle="modal">修改</button>
+                                        </a>
+
+                                        <button class="btn btn-danger btn-xs" data-toggle="modal"
+                                                data-target="#deleteSource">删除
+                                        </button>
+
+                                    </div>
+
+                                </div>
+                            </c:forEach>
+                        </c:if>
+                    </div>
+
                 </div>
 
                 <!--弹出删除博客警告窗口-->

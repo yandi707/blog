@@ -94,21 +94,21 @@
         <div class="col-md-4 col-md-offset-4">
 
             <div class="fh5co-form animate-box" data-animate-effect="fadeIn">
-                <h2>BLOGGER Sign In</h2>
+                <h2>坛主登录</h2>
                 <div class="form-group">
-                    <label for="username" class="sr-only">username</label>
-                    <input type="text" class="form-control" id="username" placeholder="username" autocomplete="off">
+                    <label for="username" class="sr-only">用户名</label>
+                    <input type="text" class="form-control" id="username" placeholder="用户名" autocomplete="off">
                 </div>
                 <div class="form-group">
-                    <label for="password" class="sr-only">password</label>
-                    <input type="password" class="form-control" id="password" placeholder="password" autocomplete="off">
+                    <label for="password" class="sr-only">密码</label>
+                    <input type="password" class="form-control" id="password" placeholder="密码" autocomplete="off">
                 </div>
                 <div class="form-group">
-                    <p>Not registered? <a href="${pageContext.request.contextPath}/forget.do">Forgot Password?</a>
+                    <p><a href="${pageContext.request.contextPath}/forget.do">忘记密码?</a>
                     </p>
                 </div>
                 <div class="form-group">
-                  <button class="btn btn-primary" id="loginBtn" onclick="adminLogin()">LOGIN</button>
+                  <button class="btn btn-primary" id="loginBtn" onclick="adminLogin()">登录</button>
 
                 </div>
             </div>

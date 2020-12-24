@@ -5,6 +5,8 @@ import wen.blog.pojo.Blog;
 import java.util.HashMap;
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 public interface BlogDao {
 
     // 首页查询博客
@@ -56,5 +58,12 @@ public interface BlogDao {
 
     // 根据博客 id 获取博客标题
     String getTitleById(Integer id);
+
+    //是否通过文章
+    int updatePassById(int id);
+
+    //驳回操作
+    int insertBhMessage(Blog blog);
+
 
 }

@@ -79,17 +79,17 @@
                                             <button class="btn btn-success btn-xs" data-toggle="modal">查看</button>
                                         </a>
 
-                                        <a href="${pageContext.request.contextPath}/turnToEdit/.do?id=${blog.id}">
+                                        <a href="${pageContext.request.contextPath}/send/pass/.do?id=${blog.id}">
                                             <button class="btn btn-success btn-xs" data-toggle="modal">通过</button>
                                         </a>
 
-                                        <a href="${pageContext.request.contextPath}/turnToEdit/.do?id=${blog.id}">
-                                            <button class="btn btn-success btn-xs" data-toggle="modal">驳回</button>
-                                        </a>
-
                                         <button class="btn btn-danger btn-xs" data-toggle="modal"
-                                                data-target="#deleteSourceTwo">删除
+                                                data-target="#bhReason" data-whatever="${blog.id}">驳回
                                         </button>
+
+                                        <%--<button class="btn btn-danger btn-xs" data-toggle="modal"
+                                                data-target="#deleteSourceTwo">删除
+                                        </button>--%>
 
                                     </div>
 
@@ -127,6 +127,42 @@
                         </div>
                     </div>
                 </div>
+
+                    <!--驳回发送消息-->
+                    <div class="modal fade" id="bhReason" role="dialog" aria-labelledby="gridSystemModalLabel">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                                aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="hintthree">驳回</h4>
+                                    </div>
+
+                                    <form action="${pageContext.request.contextPath}/send/bhOperate.do" method="post">
+                                        <div class="modal-body">
+                                            <div class="container-fluid">
+                                                请输入您的驳回理由：<br><br>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <input id="bhId" name="bhId" type="hidden" value="">
+                                                <input id="bhMessage" name="bhMessage" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-xs btn-white" data-dismiss="modal">取 消</button>
+                                            <input class="btn btn-xs btn-danger" type="submit" value="驳回" id="bh"/>
+                                        </div>
+                                    </form>
+                            </div>
+                        </div>
+                    </div>
+
+            </div>
+
+
+
+
+
+
 
             </div>
 
@@ -178,6 +214,22 @@
             $("#BlogSendM").toggleClass(" glyphicon-triangle-bottom");
         });
     })
+
+
+
+    $('#bhReason').on('show.bs.modal', function (event) {
+        $("textarea[name = refuseTextareaContext]").innerHTML = "";
+        var btnThis = $(event.relatedTarget); //触发事件的按钮
+        var modal = $(this);  //当前模态框
+        var modalId = btnThis.data('whatever');   //解析出data-id的内容
+        currentDataId = btnThis.closest('tr').find('td').eq(0).text();//获取某一列的内容eq后面表示列数
+        //$("#aa").val(currentDataId);
+        console.log(modalId);
+        $("#bhId").val(modalId);
+    });
+
+
+
 </script>
 
 </body>

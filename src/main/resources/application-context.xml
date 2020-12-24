@@ -71,7 +71,7 @@
                 /static/**=anon
                 /login.jsp=anon
 <!--                /admin/**=authc-->
-                /add/*=roles[teacher]
+<!--                /add/*=roles[teacher]-->
                 /send/*=roles[teacher]
             </value>
         </property>

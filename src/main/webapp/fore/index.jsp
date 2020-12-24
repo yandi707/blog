@@ -72,6 +72,9 @@
                 <li class="nav-item">
                     <a class="nav-link page-scroll" href="../fore/search.jsp">SEARCH</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link page-scroll" href="../back/login.jsp">LOGIN</a>
+                </li>
             </ul>
         </div>
     </div>

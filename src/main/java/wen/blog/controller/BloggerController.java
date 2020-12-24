@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -103,6 +104,24 @@ public class BloggerController {
         modelAndView.setViewName("../back/send/sendManger");
         return modelAndView;
     }
+    //通过操作
+    @RequestMapping("/send/pass/{id}")
+    public String pass(@RequestParam(required = false) Integer id){
+        int flag = blogService.updatePassById(id);
+        return "redirect:/send/sendList.do";
+    }
+    //驳回操作
+    @RequestMapping("/send/bhOperate")
+    public String bhOperate(Blog blog,@RequestParam Integer bhId){
+        System.out.println(bhId);
+        System.out.println(blog.getBhMessage());
+        blog.setId(bhId);
+        int flag = blogService.insertBhMessage(blog);
+        return "redirect:/send/sendList.do";
+    }
+
+
+
     //浏览者评论
     @RequestMapping("/pl/commentList")
     public ModelAndView commentList(){

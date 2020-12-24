@@ -77,8 +77,8 @@
 
     <!-- 添加博客 -->
     <insert id="insertBlog" parameterType="wen.blog.pojo.Blog">
-        insert into blog (title, summary, releaseDate, clickHit, commentHit, content, keyword, blogTypeId , bloggerName)
-        values (#{title}, #{summary}, now(), 0, 0, #{content}, #{keyword}, #{blogTypeId} ,#{bloggerName})
+        insert into blog (title, summary, releaseDate, clickHit, commentHit, content, keyword, blogTypeId , bloggerName,shType)
+        values (#{title}, #{summary}, now(), 0, 0, #{content}, #{keyword}, #{blogTypeId} ,#{bloggerName},'待审核')
     </insert>
 
     <!-- 删除博客 -->
@@ -110,13 +110,22 @@
 
     <!-- 获取所有博客 -->
     <select id="getAllBlog" resultMap="ForeBlog">
-        select id, title, summary, releaseDate from blog
+        select id, title, summary, releaseDate from blog where pass = '0'
     </select>
 
     <!-- 获取登陆者自己的文章 -->
     <select id="getOneselfBlog" parameterType="java.lang.String" resultMap="ForeBlog">
-        select id, title, summary, releaseDate from blog where bloggerName = #{username}
+        select id, title, summary,shType,releaseDate from blog where bloggerName = #{username} and pass = '1'
     </select>
+
+   <!-- send 页面通过操作-->
+    <update id="updatePassById" parameterType="java.lang.Integer" >
+        update blog set pass = 1 where id = #{id}
+    </update>
+    <!-- send 页面驳回操作-->
+    <insert id="insertBhMessage" parameterType="wen.blog.pojo.Blog">
+        update blog set bhMessage = #{bhMessage},pass = 3 where id = #{id}
+    </insert>
 
     <!-- 实现关键字查找 -->
     <select id="searchBlog" parameterType="java.lang.String" resultType="java.lang.Integer">

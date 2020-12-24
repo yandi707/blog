@@ -147,4 +147,17 @@ public class BlogServiceImpl implements BlogService {
         return blogDao.searchBlog(str);
     }
 
+    @Override
+    public int updatePassById(int id) {
+        return blogDao.updatePassById(id);
+    }
+
+
+
+
+    @Override
+    public int insertBhMessage(Blog blog) {
+        return blogDao.insertBhMessage(blog);
+    }
+
 }

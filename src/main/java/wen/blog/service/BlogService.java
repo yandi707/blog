@@ -52,4 +52,9 @@ public interface BlogService {
     // 搜索博文
     List<Integer> searchBlog(String str);
 
+    //send页面通过操作
+    int updatePassById(int id);
+
+
+    int insertBhMessage(Blog blog);
 }
