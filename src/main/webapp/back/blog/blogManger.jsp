@@ -77,13 +77,14 @@
                                                   class="glyphicon">${blog.title}</span>
                                         </div>
                                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">${blog.summary}</div>
-                                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">${blog.shType}</div>
+
                                     </a>
+                                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">${blog.shType}</div>
 
                                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                                        <a href="${pageContext.request.contextPath}/turnToEdit/.do?id=${blog.id}">
-                                            <button class="btn btn-success btn-xs" data-toggle="modal">修改</button>
-                                        </a>
+                                        <%--<a href="${pageContext.request.contextPath}/turnToEdit/.do?id=${blog.id}">
+                                            <button class="btn btn-success btn-xs" data-toggle="modal"></button>
+                                        </a>--%>
 
                                         <button class="btn btn-danger btn-xs" data-toggle="modal"
                                                 data-target="#deleteSource">删除
@@ -96,12 +97,13 @@
                         </c:if>
                     </div>
 
+<%--                    待审核--%>
                     <div class="tablebody">
-                        <c:if test="${empty blogSendList}">
+                        <c:if test="${empty blogDshList}">
                             Null Message for more blogs.
                         </c:if>
-                        <c:if test="${!empty blogSendList}">
-                            <c:forEach items="${blogSendList}" var="blog">
+                        <c:if test="${!empty blogDshList}">
+                            <c:forEach items="${blogDshList}" var="blog">
                                 <div class="row">
                                     <a href="${pageContext.request.contextPath}/blog/.do?id=${blog.id}">
                                         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
@@ -121,6 +123,48 @@
                                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                                         <a href="${pageContext.request.contextPath}/turnToEdit/.do?id=${blog.id}">
                                             <button class="btn btn-success btn-xs" data-toggle="modal">修改</button>
+                                        </a>
+
+                                        <button class="btn btn-danger btn-xs" data-toggle="modal"
+                                                data-target="#deleteSource">删除
+                                        </button>
+
+                                    </div>
+
+                                </div>
+                            </c:forEach>
+                        </c:if>
+                    </div>
+<%--                    已驳回--%>
+                    <div class="tablebody">
+                        <c:if test="${empty blogYbhList}">
+                            Null Message for more blogs.
+                        </c:if>
+                        <c:if test="${!empty blogYbhList}">
+                            <c:forEach items="${blogYbhList}" var="blog">
+                                    <div class="row">
+                                    <a href="${pageContext.request.contextPath}/blog/.do?id=${blog.id}">
+                                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                                                ${blog.id}
+                                        </div>
+                                        <div id="topAddD" class="col-lg-4 col-md-4 col-sm-4 col-xs-4" role="button"
+                                             data-toggle="collapse" data-parent="#accordion" href="#collapseSystem"
+                                             aria-expanded="true" aria-controls="collapseOne">
+                                                <span id="topddA"
+                                                      class="glyphicon">${blog.title}</span>
+                                        </div>
+                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">${blog.summary}</div>
+
+                                    </a>
+                                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">${blog.shType}</div>
+
+                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                        <a href="${pageContext.request.contextPath}/turnToEdit/.do?id=${blog.id}">
+                                            <button class="btn btn-success btn-xs" data-toggle="modal">修改</button>
+                                        </a>
+
+                                        <a href="${pageContext.request.contextPath}/my/fsOperate/.do?id=${blog.id}">
+                                            <button class="btn btn-success btn-xs" data-toggle="modal">复审</button>
                                         </a>
 
                                         <button class="btn btn-danger btn-xs" data-toggle="modal"
@@ -214,6 +258,13 @@
             $("#BlogSendM").toggleClass(" glyphicon-triangle-right");
             $("#BlogSendM").toggleClass(" glyphicon-triangle-bottom");
         });
+
+        /*let len = ${blogSendList};
+        for(var i=1;i<len;i++){
+            $("#leftId").val(i);
+        }*/
+
+
     })
 </script>
 

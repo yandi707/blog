@@ -67,6 +67,15 @@ public class BlogServiceImpl implements BlogService {
     public List<Blog> getOneselfBlog(String username){
         return blogDao.getOneselfBlog(username);
     }
+    //获取待审核的文章
+    @Override
+    public List<Blog> getDshBlog(String username) {
+        return blogDao.getDshBlog(username);
+    }
+    //获取已驳回的文章
+    public List<Blog> getYbhBlog(String username) {
+        return blogDao.getYbhBlog(username);
+    }
 
     @Override
     public Blog getBlogById(int id) {
@@ -146,13 +155,17 @@ public class BlogServiceImpl implements BlogService {
     public List<Integer> searchBlog(String str) {
         return blogDao.searchBlog(str);
     }
-
+    //通过操作
     @Override
     public int updatePassById(int id) {
         return blogDao.updatePassById(id);
     }
 
-
+    //复审操作
+    @Override
+    public int updateFsById(int id) {
+        return blogDao.updateFsById(id);
+    }
 
 
     @Override

@@ -32,7 +32,7 @@
          <span id="jumpSendManger"><img src="../static/img/blogger/icon_source.png">博文发布管理</span>
      </div>--%>
     <div class="meun-item " aria-controls="sour" role="tab">
-        <a href="${pageContext.request.contextPath}/send/sendList.do"><img src="/static/img/blogger/icon_source.png">博文发布管理</a>
+        <a href="${pageContext.request.contextPath}/send/sendList.do"><img src="/static/img/blogger/icon_source.png">文章审核</a>
     </div>
 
     <div class="meun-title">评论</div>

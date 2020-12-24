@@ -83,8 +83,17 @@ public class BloggerController {
         String username = (String) session.getAttribute("userName");
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("blogSendList", blogService.getOneselfBlog(username));
+        modelAndView.addObject("blogDshList", blogService.getDshBlog(username));
+        modelAndView.addObject("blogYbhList", blogService.getYbhBlog(username));
         modelAndView.setViewName("../back/blog/blogManger");
         return modelAndView;
+    }
+
+    //复审操作
+    @RequestMapping("/my/fsOperate/{id}")
+    public String fsOperate(@RequestParam(required = false) Integer id){
+        int flag = blogService.updateFsById(id);
+        return "redirect:/my/getOneselfList.do";
     }
 
     //文章类型
@@ -113,8 +122,6 @@ public class BloggerController {
     //驳回操作
     @RequestMapping("/send/bhOperate")
     public String bhOperate(Blog blog,@RequestParam Integer bhId){
-        System.out.println(bhId);
-        System.out.println(blog.getBhMessage());
         blog.setId(bhId);
         int flag = blogService.insertBhMessage(blog);
         return "redirect:/send/sendList.do";

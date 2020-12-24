@@ -22,6 +22,11 @@ public interface BlogService {
     //获取登陆者自己的博文
     List<Blog> getOneselfBlog(String username);
 
+    //获取待审核的博文
+    List<Blog> getDshBlog(String username);
+    //获取已驳回的博文
+    List<Blog> getYbhBlog(String username);
+
     // 博客详情
     Blog getBlogById(int id);
 
@@ -54,6 +59,8 @@ public interface BlogService {
 
     //send页面通过操作
     int updatePassById(int id);
+    //复审操作
+    int updateFsById(int id);
 
 
     int insertBhMessage(Blog blog);

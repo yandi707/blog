@@ -27,6 +27,12 @@ public interface BlogDao {
     //获取登陆者自己的文章
     List<Blog> getOneselfBlog(String username);
 
+    //获取待审核的文章
+    List<Blog> getDshBlog(String username);
+
+    //获取已驳回的文章
+    List<Blog> getYbhBlog(String username);
+
     // 刷新博客的访问量
     void updateClickHitById(int id);
 
@@ -64,6 +70,9 @@ public interface BlogDao {
 
     //驳回操作
     int insertBhMessage(Blog blog);
+
+    //复审文章
+    int updateFsById(int id);
 
 
 }
