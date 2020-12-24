@@ -48,8 +48,11 @@
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                             标题
                         </div>
-                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                             简介
+                        </div>
+                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                            状态
                         </div>
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                             操作
@@ -73,7 +76,8 @@
                                             <span id="topA"
                                                   class="glyphicon">${blog.title}</span>
                                         </div>
-                                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">${blog.summary}</div>
+                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">${blog.summary}</div>
+                                        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">${blog.shType}</div>
                                     </a>
 
                                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
@@ -103,14 +107,16 @@
                                         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
                                                 ${blog.id}
                                         </div>
-                                        <div id="topAD5" class="col-lg-4 col-md-4 col-sm-4 col-xs-4" role="button"
+                                        <div id="topAdD" class="col-lg-4 col-md-4 col-sm-4 col-xs-4" role="button"
                                              data-toggle="collapse" data-parent="#accordion" href="#collapseSystem"
                                              aria-expanded="true" aria-controls="collapseOne">
-                                            <span id="topA5"
+                                            <span id="topdA"
                                                   class="glyphicon">${blog.title}</span>
                                         </div>
-                                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">${blog.summary}</div>
+                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">${blog.summary}</div>
+
                                     </a>
+                                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">${blog.shType}</div>
 
                                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                                         <a href="${pageContext.request.contextPath}/turnToEdit/.do?id=${blog.id}">
