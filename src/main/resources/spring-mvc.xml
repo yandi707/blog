@@ -7,6 +7,8 @@
 
     <!-- 扫描controller包 -->
     <context:component-scan base-package="wen.blog.controller"/>
+    <!--邮件配置-->
+    <context:property-placeholder location="classpath:email.properties" ignore-unresolvable="true"/>
 
     <!-- 开启注解配置-->
     <mvc:annotation-driven/>
@@ -25,6 +27,22 @@
           class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="maxUploadSize" value="10000000"/>
         <property name="defaultEncoding" value="utf-8"/>
+    </bean>
+
+
+
+    <!--配置邮件接口-->
+    <bean id="javaMailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="host" value="${mail.smtp.host}"/>
+        <property name="username" value="${mail.smtp.username}"/>
+        <property name="password" value="${mail.smtp.password}"/>
+        <property name="defaultEncoding" value="${mail.smtp.defaultEncoding}"/>
+        <property name="javaMailProperties">
+            <props>
+                <prop key="mail.smtp.auth">${mail.smtp.auth}</prop>
+                <prop key="mail.smtp.timeout">${mail.smtp.timeout}</prop>
+            </props>
+        </property>
     </bean>
 
 </beans>
