@@ -60,6 +60,11 @@
 
     <div class="meun-title">个人</div>
 
+    <%-- 消息接收 --%>
+    <div class="meun-item" aria-controls="user" role="tab">
+        <a href="${pageContext.request.contextPath}/gr/informationList.do"> <img src="/static/img/blogger/icon_chara_grey.png">消息接收</a>
+
+    </div>
     <%-- 个人信息 --%>
     <div class="meun-item" aria-controls="user" role="tab">
         <a href="${pageContext.request.contextPath}/gr/informationList.do"> <img src="/static/img/blogger/icon_chara_grey.png">个人信息</a>
