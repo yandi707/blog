@@ -33,7 +33,11 @@
 
     <!-- 查询所有评论 -->
     <select id="getAllComment" resultMap="CommentInfo">
-        select id, name, email, content, comment_date, blog_id from comment
+        SELECT id, name, email, content, comment_date, blog_id FROM `comment`;
+    </select>
+    <!-- 查询博主自己的评论 -->
+    <select id="getMyselfComment" parameterType="java.lang.String" resultMap="CommentInfo">
+        SELECT id, name, email, content, comment_date, blog_id FROM `comment` WHERE blog_id IN (SELECT id FROM blog WHERE bloggerName = #{username});
     </select>
 
     <!-- 根据博客 id 查询博客名称-->

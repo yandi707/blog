@@ -24,13 +24,13 @@ public class EmailController {
             JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
             mailSender.setHost("smtp.qq.com");
             mailSender.setPort(587);
-            mailSender.setUsername(email.getSender());
-            mailSender.setPassword(email.getAuth());
+            mailSender.setUsername("1337991430@qq.com");
+            mailSender.setPassword("tlngmynzumgqfjib");
 
             // 邮件信息
             SimpleMailMessage msg = new SimpleMailMessage();
             msg.setFrom(email.getSender()); // 发件人邮箱
-            msg.setTo("820352756@qq.com"); // 收件人邮箱
+            msg.setTo("1337991430@qq.com"); // 收件人邮箱
             msg.setSubject(email.getSubject()); // 标题
             msg.setText(email.getMessage()); // 文本信息
             try {

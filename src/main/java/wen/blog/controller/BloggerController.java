@@ -131,9 +131,10 @@ public class BloggerController {
 
     //浏览者评论
     @RequestMapping("/pl/commentList")
-    public ModelAndView commentList(){
+    public ModelAndView commentList(HttpSession session){
+        String username = (String) session.getAttribute("userName");
         ModelAndView modelAndView = new ModelAndView();
-        List<Comment> commentList = commentService.getAllComment();
+        List<Comment> commentList = commentService.getMyselfComment(username);
         for (Comment comment : commentList) {
             comment.setBlogTitle(commentService.getTitleByBlogId(comment.getBlog_id()));
         }
@@ -141,6 +142,19 @@ public class BloggerController {
         modelAndView.setViewName("../back/comment/commentManger");
         return modelAndView;
     }
+    //审核评论
+    @RequestMapping("/checkComment/checkCommentList")
+    public ModelAndView checkCommentList(){
+        ModelAndView modelAndView = new ModelAndView();
+        List<Comment> checkCommentList = commentService.getAllComment();
+        for (Comment comment : checkCommentList) {
+            comment.setBlogTitle(commentService.getTitleByBlogId(comment.getBlog_id()));
+        }
+        modelAndView.addObject("checkCommentList", checkCommentList);
+        modelAndView.setViewName("../back/comment/checkCommentManger");
+        return modelAndView;
+    }
+
     //回复评论
     @RequestMapping("/hf/replyList")
     public ModelAndView replyList(){

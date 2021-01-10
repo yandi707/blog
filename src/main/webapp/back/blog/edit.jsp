@@ -47,13 +47,19 @@
         prettyPrint();
     });
 </script>
+<style>
+    .row {
+        margin-right: 174px;
+        margin-left: 298px;
+    }
+</style>
 
 <body>
 <section id="contact">
     <div class="section-inner">
         <div class="container">
 
-            <div class="row">
+            <div class="row" >
                 <div class="col-lg-12 text-center wow fadeInDown">
                     <h2 class="section-heading"><strong>博文</strong> 修改</h2>
                     <h3 class="section-subheading text-muted">Ideas Worth Spreading</h3>
@@ -91,7 +97,7 @@
                             </select><br>
                         </p>
                         <input id="commit" class="btn btn-outlined btn-primary pull-right"
-                               type="button" name="submit" value="发布博客"/>
+                               type="button" name="submit" value="修改博客"/>
                     </form>
                 </div>
             </div>

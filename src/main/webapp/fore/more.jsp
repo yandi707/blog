@@ -39,8 +39,7 @@
                 <div class="col-md-8 header-text-top " id="about">
 
 
-                    <h1>欢迎来到温爸爸的博客.</h1>
-                    这是我的 J2EE 大作业 -- 基于SSM框架的个人博客系统<br/>
+                    <h1>欢迎来到闫迪的论坛.</h1><br/>
                     simpleness and sureness -- all I want for every day.<br/>
                     <h2><strong>Who I am ? </strong></h2>
                     <i>I am Your Great DADDY. </i>

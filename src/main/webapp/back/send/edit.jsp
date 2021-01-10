@@ -45,6 +45,8 @@
             }
         });
         prettyPrint();
+        //使编辑器为不可编辑状态
+        editor.readonly(true);
     });
 </script>
 
@@ -66,32 +68,34 @@
                         <p><input type="text" class="form-control" name="title"
                                   placeholder="博文标题 *" id="title" required
                                   data-validation-required-message="Please enter your title."
-                                  value="${blog.title}"/>
+                                  value="${blog.title}" disabled/>
                         </p>
                         <p>
-                            <textarea name="summary" class="form-control" id="summary" placeholder="博文摘要 *"
-                                      required
-                                      data-validation-required-message="Please enter your summary.">${blog.summary}</textarea>
+                            <textarea name="summary" class="form-control" id="summary" placeholder="博文摘要 *" required data-validation-required-message="Please enter your summary." disabled>
+                                ${blog.summary}
+                            </textarea>
                         </p>
                         <p>
-                            <textarea id="content" name="content" type="text" cols="100" rows="8"
-                                      style="height: 400px; visibility: hidden;" required>${blog.content}</textarea>
+                            <textarea id="content" name="content" type="text" cols="100" rows="8" style="height: 400px; visibility: hidden;" required>
+                                ${blog.content}
+                            </textarea>
                         </p>
                         <p>
                             <input type="text" class="form-control" name="keyword" placeholder="关键字 *"
                                    id="keyword" required data-validation-required-message="Please enter your keyword."
-                                   value="${blog.keyword}"/>
+                                   value="${blog.keyword}" disabled style="height: 44px;width: 650px;"/>
                         </p>
                         <p>
                             博客类型：
-                            <select id="blogTypeId" name="blogTypeId">
+                            <select id="blogTypeId" name="blogTypeId" disabled>
                                 <c:forEach items="${blogTypeList}" var="blogType">
                                     <option value="${blogType.id}">${blogType.typeName}</option>
                                 </c:forEach>
                             </select><br>
                         </p>
-                        <input id="commit" class="btn btn-outlined btn-primary pull-right"
-                               type="button" name="submit" value="发布博客"/>
+                       <%-- <input id="commit" class="btn btn-outlined btn-primary pull-right"
+                               type="button" name="submit" value="返回"/>--%>
+                        <input id="last" class="btn btn-outlined btn-primary pull-right" type="button" value="返回列表" />
                     </form>
                 </div>
             </div>
@@ -137,6 +141,10 @@
                 }
             })
 
+        })
+
+        $("#last").click(function () {
+            window.location.href = "${pageContext.request.contextPath}/send/sendList.do";
         })
     })
 </script>

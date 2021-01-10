@@ -46,6 +46,10 @@
     <div class="meun-item" aria-controls="user" role="tab" >
         <a href="${pageContext.request.contextPath}/hf/replyList.do"><img src="/static/img/blogger/icon_user_grey.png">回复评论</a>
     </div>
+    <%--审核评论--%>
+    <div class="meun-item " aria-controls="sour" role="tab">
+        <a href="${pageContext.request.contextPath}/checkComment/checkCommentList.do"> <img src="/static/img/blogger/icon_change_grey.png">评论审核</a>
+    </div>
 
     <div class="meun-title">第三方</div>
 

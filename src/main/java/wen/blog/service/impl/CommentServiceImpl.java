@@ -44,4 +44,10 @@ public class CommentServiceImpl implements CommentService {
         commentDao.deleteCommentById(id);
     }
 
+    //获得自己的评论
+    @Override
+    public List<Comment> getMyselfComment(String username) {
+        return commentDao.getMyselfComment(username);
+    }
+
 }

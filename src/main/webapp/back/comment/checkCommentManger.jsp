@@ -58,11 +58,11 @@
                     </div>
 
                     <div class="tablebody">
-                        <c:if test="${empty commentList}">
+                        <c:if test="${empty checkCommentList}">
                             Null Message for more comments.
                         </c:if>
-                        <c:if test="${!empty commentList}">
-                            <c:forEach items="${commentList}" var="comment">
+                        <c:if test="${!empty checkCommentList}">
+                            <c:forEach items="${checkCommentList}" var="comment">
                                 <div class="row">
                                     <div class="col-xs-2 ">
                                             ${comment.id}
@@ -304,7 +304,7 @@
                 success: function (result) {
                     if (result === true) {
                         alert("向评论者发送邮件成功！");
-                        window.location.href = "${pageContext.request.contextPath}/pl/commentList.do";
+                        window.location.href = "${pageContext.request.contextPath}/checkComment/checkCommentList.do";
                     } else if (result === false) {
                         alert("向评论者发送邮件失败！");
                         location.reload();
@@ -335,7 +335,7 @@
                 success: function (result) {
                     if (result === true) {
                         alert("删除评论成功！");
-                        window.location.href = "${pageContext.request.contextPath}/pl/commentList.do";
+                        window.location.href = "${pageContext.request.contextPath}/checkComment/checkCommentList.do";
                     } else if (result === false) {
                         alert("删除评论失败！");
                         location.reload();
@@ -370,7 +370,7 @@
                 success: function (result) {
                     if (result === true) {
                         alert("回复评论成功！");
-                        window.location.href = "${pageContext.request.contextPath}/pl/commentList.do";
+                        window.location.href = "${pageContext.request.contextPath}/checkComment/checkCommentList.do";
                     } else if (result === false) {
                         alert("回复评论失败！");
                         location.reload();
@@ -401,7 +401,7 @@
                 success: function (result) {
                     if (result === true) {
                         alert("删除回复成功！");
-                        window.location.href = "${pageContext.request.contextPath}/pl/commentList.do";
+                        window.location.href = "${pageContext.request.contextPath}/checkComment/checkCommentList.do";
                     } else if (result === false) {
                         alert("删除回复失败！");
                         location.reload();

@@ -45,16 +45,16 @@ public class CommentController {
     @RequestMapping("/sendCommentEmail")
     public boolean sendCommentEmail(@RequestBody Email email) {
         if (email.getCommentId() != null) {
-            email.setNickname("温爸爸");
-            email.setSender("820352756@qq.com");
+            email.setNickname("闫迪");
+            email.setSender("1337991430@qq.com");
             String commentAddress = commentDao.getEmailByCommentId(email.getCommentId());
 
             JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
 
             mailSender.setHost("smtp.qq.com");
             mailSender.setPort(587);
-            mailSender.setUsername("820352756@qq.com");
-            mailSender.setPassword("你的QQ邮箱授权码");
+            mailSender.setUsername("1337991430@qq.com");
+            mailSender.setPassword("tlngmynzumgqfjib");
 
             // 邮件信息
             SimpleMailMessage msg = new SimpleMailMessage();

@@ -87,7 +87,7 @@
                             <i class="fa fa-user"> </i> Stephanie
                             <i class="fa fa-calendar"></i> ${blog.releaseDate}
                             <i class="fa fa-comments"></i>
-                            <span class="data"><a href="#comments">${blog.commentHit} Comments</a></span>
+                            <span class="data"><a href="#comments">${blog.commentHit} 评论</a></span>
                         </div>
                         <a>${blog.summary}</a>
                         <p>${blog.content}</p>
@@ -101,7 +101,7 @@
                 <aside class="comments" id="comments">
                     <hr>
 
-                    <h2><i class="fa fa-comments"></i> ${blog.commentHit} Comments</h2>
+                    <h2><i class="fa fa-comments"></i> ${blog.commentHit} 评论</h2>
 
                     <c:if test="${empty commentList}">
                         暂无评论
@@ -216,7 +216,7 @@
 
                 <div class="aside-widget">
                     <header>
-                        <h3>Recently Post</h3>
+                        <h3>历史文章</h3>
                     </header>
                     <div class="body">
                         <ul class="clean-list">
@@ -231,7 +231,7 @@
 
                 <div class="aside-widget">
                     <header>
-                        <h3>Blog Types</h3>
+                        <h3>文章类型</h3>
                     </header>
                     <div class="body clearfix">
                         <ul class="tags">
@@ -246,7 +246,7 @@
 
                 <div class="aside-widget">
                     <header>
-                        <h3>Links</h3>
+                        <h3>链接</h3>
                     </header>
                     <div class="body clearfix">
                         <ul class="tags">

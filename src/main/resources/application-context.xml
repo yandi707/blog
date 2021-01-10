@@ -73,6 +73,7 @@
 <!--                /admin/**=authc-->
 <!--                /add/*=roles[teacher]-->
                 /send/*=roles[teacher]
+                /checkComment/*=roles[teacher]
             </value>
         </property>
     </bean>

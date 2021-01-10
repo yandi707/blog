@@ -18,6 +18,9 @@ public interface CommentDao {
     // 管理页面获取所有评论
     List<Comment> getAllComment();
 
+    // 管理页面获取自己评论
+    List<Comment> getMyselfComment(String username);
+
     // 根据博客 id 查询博客名称
     String getTitleByBlogId(int id);
 

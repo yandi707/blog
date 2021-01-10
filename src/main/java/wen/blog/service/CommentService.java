@@ -21,4 +21,6 @@ public interface CommentService {
     // 根据 id 值删除评论
     void deleteCommentById(Integer id);
 
+    //获取博主自己的评论
+    List<Comment> getMyselfComment(String username);
 }
