@@ -20,7 +20,7 @@ public interface ReplyDao {
     List<Reply> getReplyByPage(HashMap<String, Object> map);
 
     // 获取所有回复
-    List<Reply> getAllReply();
+    List<Reply> getAllReply(String username);
 
     // 根据评论 id 查询博客标题
     String getBlogTitleByReplyId(Integer id);

@@ -173,4 +173,14 @@ public class BlogServiceImpl implements BlogService {
         return blogDao.insertBhMessage(blog);
     }
 
+    @Override
+    public List<Blog> getOneselfNew(String username) {
+        return blogDao.getOneselfNew(username);
+    }
+    //设置消息为已读
+    @Override
+    public int turnToRead(Integer id) {
+        return blogDao.turnToRead(id);
+    }
+
 }

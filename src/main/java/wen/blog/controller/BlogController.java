@@ -168,7 +168,13 @@ public class BlogController {
         }
         return modelAndView;
     }
-
+    @RequestMapping("/turnToRead/{id}")
+    public String turnToRead(@RequestParam(required = false) Integer id) {
+        if (id != null) {
+            int flag = blogService.turnToRead(id);
+        }
+        return "redirect:/new/newList.do";
+    }
     // 获取博文实体进行更新
     @ResponseBody
     @RequestMapping("/edit")

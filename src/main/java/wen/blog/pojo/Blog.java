@@ -21,6 +21,7 @@ public class Blog implements Serializable {
 
     private String bhMessage;
     private String shType;
+    private String newRead;
 
     public  Blog() {
     }
@@ -49,6 +50,14 @@ public class Blog implements Serializable {
 
     public void setShType(String shType) {
         this.shType = shType;
+    }
+
+    public String getNewRead() {
+        return newRead;
+    }
+
+    public void setNewRead(String newRead) {
+        this.newRead = newRead;
     }
 
     public String getBhMessage() {

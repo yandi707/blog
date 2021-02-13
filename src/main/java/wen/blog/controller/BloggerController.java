@@ -157,9 +157,10 @@ public class BloggerController {
 
     //回复评论
     @RequestMapping("/hf/replyList")
-    public ModelAndView replyList(){
+    public ModelAndView replyList(HttpSession session){
+        String username = (String) session.getAttribute("userName");
         ModelAndView modelAndView = new ModelAndView();
-        List<Reply> replyList = replyService.getAllReply();
+        List<Reply> replyList = replyService.getAllReply(username);
         for (Reply reply : replyList) {
             Integer id = reply.getId();
             reply.setBlog_id(replyService.getBlogIdByReplyId(id));
@@ -176,6 +177,15 @@ public class BloggerController {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("linkList", linkService.getAllLink());
         modelAndView.setViewName("../back/link/linkManger");
+        return modelAndView;
+    }
+    //获取登陆者的消息提醒
+    @RequestMapping("/new/newList")
+    public ModelAndView newList(HttpSession session){
+        String username = (String) session.getAttribute("userName");
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("blogNewList", blogService.getOneselfNew(username));
+        modelAndView.setViewName("../back/new/newList");
         return modelAndView;
     }
     //个人信息

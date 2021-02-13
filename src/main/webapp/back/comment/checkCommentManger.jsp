@@ -86,13 +86,12 @@
                                                 data-target="#sendCommentEmail">
                                             发送邮件
                                         </button>
+                                        <a href="${pageContext.request.contextPath}/passComment/pass/.do?id=${comment.id}">
+                                            <button class="btn btn-success btn-xs" data-toggle="modal">通过</button>
+                                        </a>
                                         <button class="btn btn-danger btn-xs" data-toggle="modal"
                                                 data-target="#deleteComment">
                                             删除
-                                        </button>
-                                        <button class="btn btn-success btn-xs" data-toggle="modal"
-                                                data-target="#sendCommentReply">
-                                            回复
                                         </button>
                                     </div>
                                 </div>

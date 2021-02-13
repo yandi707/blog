@@ -50,10 +50,9 @@
     <select id="deleteReplyById" parameterType="java.lang.Integer">
         delete from reply where id = #{id}
     </select>
-
     <!-- 获取所有回复 -->
-    <select id="getAllReply" resultMap="ReplyInfo">
-        select id, content, reply_date, comment_id from reply
+    <select id="getAllReply" parameterType="java.lang.String" resultMap="ReplyInfo">
+          SELECT id, content, reply_date, comment_id FROM reply WHERE comment_id IN (SELECT id FROM `comment` WHERE blog_id IN (SELECT id FROM blog WHERE bloggerName = #{username}))
     </select>
 
 </mapper>

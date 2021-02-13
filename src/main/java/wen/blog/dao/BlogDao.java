@@ -74,5 +74,8 @@ public interface BlogDao {
     //复审文章
     int updateFsById(int id);
 
-
+//获得自己的消息
+    List<Blog> getOneselfNew(String username);
+    //设置消息为已读
+    int turnToRead(Integer id);
 }

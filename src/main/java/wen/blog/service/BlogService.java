@@ -62,6 +62,11 @@ public interface BlogService {
     //复审操作
     int updateFsById(int id);
 
-
     int insertBhMessage(Blog blog);
+
+    //获取登陆者自己的博文
+    List<Blog> getOneselfNew(String username);
+
+    //设置消息为已读
+    int turnToRead(Integer id);
 }

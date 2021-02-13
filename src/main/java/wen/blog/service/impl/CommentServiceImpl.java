@@ -50,4 +50,10 @@ public class CommentServiceImpl implements CommentService {
         return commentDao.getMyselfComment(username);
     }
 
+    // 通过浏览者的评论
+    @Override
+    public int updatePassById(Integer id) {
+        return commentDao.updatePassById(id);
+    }
+
 }

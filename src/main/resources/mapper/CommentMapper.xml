@@ -16,14 +16,14 @@
     <select id="getCommentByBlogId" resultMap="CommentInfo">
         select id, name, email, content, comment_date, blog_id
         from comment
-        where blog_id = #{blog_id}
+        where blog_id = #{blog_id} and display = 1
     </select>
 
     <!-- 保存comment -->
     <insert id="saveComment" parameterType="Comment">
         insert into comment
-        (name, email, content, comment_date, blog_id)
-        values(#{name}, #{email}, #{content}, now(), #{blog_id})
+        (name, email, content, comment_date, blog_id,display)
+        values(#{name}, #{email}, #{content}, now(), #{blog_id},0)
     </insert>
 
     <!-- 更新评论次数 -->
@@ -31,13 +31,13 @@
         update blog set commentHit = commentHit + 1 where id = #{blog_id}
     </select>
 
-    <!-- 查询所有评论 -->
+    <!-- 查询所有没有审核的评论 -->
     <select id="getAllComment" resultMap="CommentInfo">
-        SELECT id, name, email, content, comment_date, blog_id FROM `comment`;
+        SELECT id, name, email, content, comment_date, blog_id FROM `comment` WHERE display =0;
     </select>
     <!-- 查询博主自己的评论 -->
     <select id="getMyselfComment" parameterType="java.lang.String" resultMap="CommentInfo">
-        SELECT id, name, email, content, comment_date, blog_id FROM `comment` WHERE blog_id IN (SELECT id FROM blog WHERE bloggerName = #{username});
+        SELECT id, name, email, content, comment_date, blog_id FROM `comment` WHERE blog_id IN (SELECT id FROM blog WHERE bloggerName = #{username}) AND display = 1;
     </select>
 
     <!-- 根据博客 id 查询博客名称-->
@@ -77,5 +77,10 @@
     <select id="minusCommentHit" parameterType="java.lang.Integer">
         update blog set commentHit = commentHit - 1 where id = #{blog_id}
     </select>
+
+<!--    通过浏览者的评论-->
+    <update id="updatePassById" parameterType="java.lang.Integer">
+        update comment set display = 1 where id = #{id}
+    </update>
 
 </mapper>

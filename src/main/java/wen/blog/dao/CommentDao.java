@@ -15,7 +15,7 @@ public interface CommentDao {
 
     void updateCommentHit(int blog_id);
 
-    // 管理页面获取所有评论
+    // 管理页面获取所有没有审核的评论
     List<Comment> getAllComment();
 
     // 管理页面获取自己评论
@@ -41,5 +41,7 @@ public interface CommentDao {
 
     // 减少评论次数
     void minusCommentHit(Integer blog_id);
+    // 通过浏览者的评论
+    int updatePassById(Integer id);
 
 }

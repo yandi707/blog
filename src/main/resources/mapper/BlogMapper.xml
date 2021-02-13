@@ -8,6 +8,8 @@
         <result property="title" column="title"/>
         <result property="summary" column="summary"/>
         <result property="releaseDate" column="releaseDate"/>
+        <result property="shType" column="shType"/>
+        <result property="newRead" column="newRead"/>
     </resultMap>
 
     <resultMap id="BlogDetail" type="Blog">
@@ -117,7 +119,14 @@
     <select id="getOneselfBlog" parameterType="java.lang.String" resultMap="ForeBlog">
         select id, title, summary,shType,releaseDate from blog where bloggerName = #{username} and pass = '1'
     </select>
-
+    <!-- 获取登陆者自己的消息 -->
+    <select id="getOneselfNew" parameterType="java.lang.String" resultMap="ForeBlog">
+        select id, title, summary,shType,releaseDate ,newRead,bhMessage from blog where bloggerName = #{username} and newRead is not null
+    </select>
+    <!--设置消息为已读-->
+    <update id="turnToRead" parameterType="java.lang.Integer" >
+        update blog set newRead = '2' where id = #{id}
+    </update>
     <!-- 获取待审核的文章 -->
     <select id="getDshBlog" parameterType="java.lang.String" resultMap="ForeBlog">
         select id, title, summary,shType,releaseDate from blog where bloggerName = #{username} and pass = '0'
@@ -129,16 +138,16 @@
 
    <!-- send 页面通过操作-->
     <update id="updatePassById" parameterType="java.lang.Integer" >
-        update blog set pass = 1,shType = '已通过' where id = #{id}
+        update blog set pass = '1',shType = '已通过',newRead = '1' where id = #{id}
     </update>
 
     <!-- 复审操作-->
     <update id="updateFsById" parameterType="java.lang.Integer" >
-        update blog set pass = 0,shType = '待审核' where id = #{id}
+        update blog set pass = '0',shType = '待审核' where id = #{id}
     </update>
     <!-- send 页面驳回操作-->
     <insert id="insertBhMessage" parameterType="wen.blog.pojo.Blog">
-        update blog set bhMessage = #{bhMessage},pass = 3 ,shType = '已驳回' where id = #{id}
+        update blog set bhMessage = #{bhMessage},pass = '3' ,shType = '已驳回',whetherRead = '0' where id = #{id}
     </insert>
 
     <!-- 实现关键字查找 -->

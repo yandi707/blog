@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import wen.blog.dao.CommentDao;
 import wen.blog.pojo.Comment;
@@ -71,6 +72,14 @@ public class CommentController {
             return true;
         }
         return false;
+    }
+
+    // 通过浏览者的评论
+    @RequestMapping("/passComment/pass/{id}")
+    public String pass(@RequestParam(required = false) Integer id){
+        int flag = commentService.updatePassById(id);
+        System.out.println(flag);
+        return "redirect:/checkComment/checkCommentList.do";
     }
 
     @ResponseBody

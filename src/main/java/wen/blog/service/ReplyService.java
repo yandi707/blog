@@ -13,7 +13,7 @@ public interface ReplyService {
     void addReply(Reply reply);
 
     // 获取所有回复
-    List<Reply> getAllReply();
+    List<Reply> getAllReply(String username);
 
     // 根据回复 id 删除回复
     void deleteReplyById(Integer id);

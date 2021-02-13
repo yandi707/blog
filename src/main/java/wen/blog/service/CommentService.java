@@ -23,4 +23,6 @@ public interface CommentService {
 
     //获取博主自己的评论
     List<Comment> getMyselfComment(String username);
+    // 通过浏览者的评论
+    int updatePassById(Integer id);
 }

@@ -62,7 +62,7 @@
 
     <%-- 消息接收 --%>
     <div class="meun-item" aria-controls="user" role="tab">
-        <a href="${pageContext.request.contextPath}/gr/informationList.do"> <img src="/static/img/blogger/icon_chara_grey.png">消息接收</a>
+        <a href="${pageContext.request.contextPath}/new/newList.do"> <img src="/static/img/blogger/icon_chara_grey.png">消息接收</a>
 
     </div>
     <%-- 个人信息 --%>
