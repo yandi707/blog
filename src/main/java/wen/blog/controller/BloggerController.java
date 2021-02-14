@@ -188,6 +188,13 @@ public class BloggerController {
         modelAndView.setViewName("../back/new/newList");
         return modelAndView;
     }
+    //清空所有的消息
+    @RequestMapping("/new/emptyNews")
+    public String emptyNews(HttpSession session){
+        String username = (String) session.getAttribute("userName");
+        int flag = blogService.emptyNews(username);
+        return "redirect:/new/newList.do";
+    }
     //个人信息
     @RequestMapping("/gr/informationList")
     public ModelAndView informationList(){
@@ -196,6 +203,7 @@ public class BloggerController {
         modelAndView.setViewName("../back/information/informationManger");
         return modelAndView;
     }
+
     @ResponseBody
     @RequestMapping("/modifyBloggerInfo")
     public boolean modifyBloggerInfo(@RequestBody Blogger blogger) {

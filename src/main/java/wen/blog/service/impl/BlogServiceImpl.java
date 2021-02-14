@@ -183,4 +183,10 @@ public class BlogServiceImpl implements BlogService {
         return blogDao.turnToRead(id);
     }
 
+    //清空所有的消息
+    @Override
+    public int emptyNews(String username) {
+        return blogDao.emptyNews(username);
+    }
+
 }

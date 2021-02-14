@@ -35,7 +35,7 @@
             <div role="tabpanel" class="tab-pane active" id="blog">
 
                 <div class="check-div form-inline">
-                    <a href="${pageContext.request.contextPath}/add/compose.do">
+                    <a href="${pageContext.request.contextPath}/new/emptyNews.do">
                         <button class="btn btn-yellow btn-xs" data-toggle="modal">清空消息</button>
                     </a>
                 </div>

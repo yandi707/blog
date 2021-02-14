@@ -168,6 +168,7 @@ public class BlogController {
         }
         return modelAndView;
     }
+    //把消息转成已读
     @RequestMapping("/turnToRead/{id}")
     public String turnToRead(@RequestParam(required = false) Integer id) {
         if (id != null) {
