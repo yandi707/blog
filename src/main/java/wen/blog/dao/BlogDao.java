@@ -81,4 +81,6 @@ public interface BlogDao {
 
     //清空所有的消息
     int emptyNews(String username);
+
+    int newNumber(String username);
 }

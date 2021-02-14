@@ -1,7 +1,6 @@
 package wen.blog.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -194,6 +193,14 @@ public class BloggerController {
         String username = (String) session.getAttribute("userName");
         int flag = blogService.emptyNews(username);
         return "redirect:/new/newList.do";
+    }
+    //查询消息的个数
+    @ResponseBody
+    @RequestMapping("/new/newNumber")
+    public int newNumber(HttpSession session){
+        String username = (String) session.getAttribute("userName");
+        int flag = blogService.newNumber(username);
+        return flag;
     }
     //个人信息
     @RequestMapping("/gr/informationList")

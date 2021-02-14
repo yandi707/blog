@@ -131,6 +131,10 @@
     <update id="emptyNews" parameterType="java.lang.String" >
         update blog set newRead = '2' where bloggerName = #{username} and newRead is not null
     </update>
+    <!--查询消息个数-->
+    <select id="newNumber" parameterType="java.lang.String" resultType="java.lang.Integer">
+        SELECT COUNT(newRead) FROM blog where bloggerName = #{username} and newRead != '2';
+    </select>
     <!-- 获取待审核的文章 -->
     <select id="getDshBlog" parameterType="java.lang.String" resultMap="ForeBlog">
         select id, title, summary,shType,releaseDate from blog where bloggerName = #{username} and pass = '0'

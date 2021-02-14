@@ -189,4 +189,10 @@ public class BlogServiceImpl implements BlogService {
         return blogDao.emptyNews(username);
     }
 
+    @Override
+    public int newNumber(String username) {
+        int flag =  blogDao.newNumber(username);
+        return flag;
+    }
+
 }

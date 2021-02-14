@@ -71,4 +71,6 @@ public interface BlogService {
     int turnToRead(Integer id);
     //清空所有的消息
     int emptyNews(String username);
+    //查询消息个数
+    int newNumber(String username);
 }

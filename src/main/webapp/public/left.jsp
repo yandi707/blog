@@ -62,8 +62,7 @@
 
     <%-- 消息接收 --%>
     <div class="meun-item" aria-controls="user" role="tab">
-        <a href="${pageContext.request.contextPath}/new/newList.do"> <img src="/static/img/blogger/icon_chara_grey.png">消息接收</a>
-
+        <a href="${pageContext.request.contextPath}/new/newList.do"> <img src="/static/img/blogger/icon_chara_grey.png">消息接收(<span id="newNumber"></span>)</a>
     </div>
     <%-- 个人信息 --%>
     <div class="meun-item" aria-controls="user" role="tab">
@@ -72,4 +71,17 @@
     </div>
 
 </div>
-
+<head>
+    <script src="../static/js/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $.ajax({
+                url:"${pageContext.request.contextPath}/new/newNumber.do",
+                type:"GET",
+                success:function (res) {
+                    document.getElementById("newNumber").innerHTML = res;
+                }
+            })
+        })
+    </script>
+</head>
