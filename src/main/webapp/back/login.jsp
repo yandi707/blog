@@ -94,7 +94,7 @@
         <div class="col-md-4 col-md-offset-4">
 
             <div class="fh5co-form animate-box" data-animate-effect="fadeIn">
-                <h2>坛主登录</h2>
+                <h2>用户登录</h2>
                 <div class="form-group">
                     <label for="username" class="sr-only">用户名</label>
                     <input type="text" class="form-control" id="username" placeholder="用户名" autocomplete="off">

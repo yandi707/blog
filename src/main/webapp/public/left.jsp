@@ -15,16 +15,16 @@
         </p>
     </div>
 
-    <div class="meun-title">博客</div>
+    <div class="meun-title">文章</div>
 
     <%-- 博文管理 --%>
     <div class="meun-item " aria-controls="sour" role="tab">
-        <a href="${pageContext.request.contextPath}/my/getOneselfList.do"> <img src="/static/img/blogger/icon_source.png">博文管理</a>
+        <a href="${pageContext.request.contextPath}/my/getOneselfList.do"> <img src="/static/img/blogger/icon_source.png">文章管理</a>
     </div>
 
     <%-- 博文类别管理 --%>
     <div class="meun-item " aria-controls="user" role="tab">
-        <a href="${pageContext.request.contextPath}/wz/typeList.do"><img src="/static/img/blogger/icon_user_grey.png">博文类别</a>
+        <a href="${pageContext.request.contextPath}/wz/typeList.do"><img src="/static/img/blogger/icon_user_grey.png">文章类别</a>
     </div>
 
     <%-- 博文发布管理 --%>

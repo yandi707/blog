@@ -42,7 +42,7 @@
                 <div class="data-div">
                     <div class="row tableHeader">
                         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 ">
-                            博客ID
+                            文章ID
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                             标题

@@ -36,14 +36,14 @@
 
                 <div class="check-div form-inline">
                     <a href="${pageContext.request.contextPath}/add/compose.do">
-                        <button class="btn btn-yellow btn-xs" data-toggle="modal">添加博客</button>
+                        <button class="btn btn-yellow btn-xs" data-toggle="modal">添加文章</button>
                     </a>
                 </div>
 
                 <div class="data-div">
                     <div class="row tableHeader">
                         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 ">
-                            博客ID
+                            文章ID
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                             标题

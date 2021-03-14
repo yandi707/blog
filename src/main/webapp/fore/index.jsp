@@ -53,27 +53,27 @@
             Menu <i class="fa fa-bars"></i>
         </button>
         <a class="navbar-brand page-scroll" href="http://i.tianqi.com/index.php?c=code&id=12&icon=1&num=5">
-            check the weather ;)</a>
+            天气</a>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link page-scroll" href="index.jsp">HOME</a>
+                    <a class="nav-link page-scroll" href="index.jsp">主页</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link page-scroll"
-                       href="${pageContext.request.contextPath}/defaultBlogType.do">TYPES</a>
+                       href="${pageContext.request.contextPath}/defaultBlogType.do">类型</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link page-scroll" href="${pageContext.request.contextPath}/about.do">BLOGGER</a>
+                    <a class="nav-link page-scroll" href="${pageContext.request.contextPath}/about.do">作者</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link page-scroll" href="../fore/contact.jsp">CONTACT</a>
+                    <a class="nav-link page-scroll" href="../fore/contact.jsp">链接</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link page-scroll" href="../fore/search.jsp">SEARCH</a>
+                    <a class="nav-link page-scroll" href="../fore/search.jsp">搜索</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link page-scroll" href="../back/login.jsp">LOGIN</a>
+                    <a class="nav-link page-scroll" href="../back/login.jsp">后台登录</a>
                 </li>
             </ul>
         </div>
@@ -86,8 +86,8 @@
         <div class="row">
             <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
                 <div class="site-heading">
-                    <h1>Stephanie's Blog</h1>
-                    <span class="subheading">基于SSM框架的个人博客系统</span>
+<%--                    <h1>Stephanie's Blog</h1>--%>
+                    <h1 class="subheading">基于SSM的IT技术分享与交流TCGR平台的设计与实现</h1>
                 </div>
             </div>
         </div>
